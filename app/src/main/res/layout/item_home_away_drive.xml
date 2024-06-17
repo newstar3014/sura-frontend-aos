@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemHomeAwayDriveBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ConciergeData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5_5"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:src="@drawable/ic_cell"
+                android:text="@{viewModel.titleText3}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <CheckBox
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:background="@drawable/custom_checkbox_home_grid_type"
+                android:button="@null"
+                android:checked="@{viewModel.rvItemType == 0 ? true : false}"
+                android:onClick="@{() -> viewModel.setrvItemType(0)}"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:background="@drawable/custom_checkbox_home_linear_type"
+                android:button="@null"
+                android:checked="@{viewModel.rvItemType == 1 ? true : false}"
+                android:onClick="@{() -> viewModel.setrvItemType(1)}"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_28"
+            android:background="@color/home_bottom_view" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_weight="0.7"
+            android:background="@color/trn"
+
+            android:fillViewport="true"
+            app:tabIndicatorColor="@color/main_tab_bar_select"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/main_tab_bar_select"
+            app:tabTextColor="@color/main_tab_bar_text_color"
+
+
+            />
+
+        <!--                    android:background="@color/trn"-->
+        <!--                    app:tabIndicator="@color/trn"-->
+        <!--                    style="@style/TabTheme"-->
+        <!--                    tools:ignore="MissingConstraints"-->
+        <com.supercarlounge.supercar.CustomViewPager
+            android:id="@+id/pager3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

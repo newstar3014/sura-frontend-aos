@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemTagBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.AllianceData" />
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:gravity="center_vertical"
+        android:background="@drawable/checkbox_round_black"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="@dimen/_10sdp" />
+        <ImageView
+            android:id="@id/close"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:visibility="gone"
+            android:src="@drawable/ic_close_w"/>
+    </LinearLayout>
+
+
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

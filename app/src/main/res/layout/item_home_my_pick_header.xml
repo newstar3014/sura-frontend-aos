@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemHomeMyPickHeaderBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.HomeData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:fontFamily="@font/inter_medium"
+                        android:text="어떤 분과 드라이브를 가고 싶으신가요?"
+
+            android:textColor="@color/white_80"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_5_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:letterSpacing="0.08"
+                android:text="@{dataset.context}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:id="@+id/btn_rec_question"
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/question_24x24" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@color/home_bottom_view" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

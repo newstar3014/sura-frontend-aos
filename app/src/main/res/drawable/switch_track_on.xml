@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@android:id/progress">
+            <shape>
+                <corners android:radius="@dimen/dimen_15"/>
+                    <size
+                        android:width="@dimen/dimen_44"
+                       android:height="@dimen/dimen_24" />
+
+                <solid
+                    android:color="@color/sw_on" />
+            </shape>
+    </item>
+
+</layer-list>

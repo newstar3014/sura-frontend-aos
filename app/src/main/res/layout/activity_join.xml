@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    tools:viewBindingIgnore = "true"-->
+
+
+    <data>
+
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.JoinViewModel" />
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View" />
+
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_bg"
+        tools:context=".ui.activity.CarCheckActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/black"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_ar_left_24px"
+                android:paddingVertical="@dimen/dimen_5"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cell"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="@dimen/_10sdp"
+                android:text="@{viewModel.titleText}"
+                />
+            <ImageView
+                android:id="@+id/iv_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:rotation="180"
+                android:src="@drawable/ic_ar_left_24px"
+                android:paddingVertical="@dimen/dimen_5"
+                android:visibility="invisible"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:progress="@{viewModel.state}"
+            android:max="7"
+            android:layout_height="@dimen/_3sdp"
+
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/join_progressbar"
+            />
+
+        <include
+            layout="@layout/ll_join_track1"
+            android:id="@+id/join_track1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.5"
+            app:viewModel="@{viewModel}"
+                android:visibility="@{viewModel.state == 1 ? View.VISIBLE :View.GONE}"
+            />
+
+        <include
+            layout="@layout/ll_join_track2"
+            android:id="@+id/join_track2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state == 2 ? View.VISIBLE :View.GONE}"
+            />
+        <include
+            layout="@layout/ll_join_track3"
+            android:id="@+id/join_track3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state == 3 ? View.VISIBLE :View.GONE}"
+            />
+
+        <include
+            layout="@layout/ll_join_track4"
+            android:id="@+id/join_track4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state == 4 ? View.VISIBLE :View.GONE}"
+            />
+        <include
+            layout="@layout/ll_join_track5"
+            android:id="@+id/join_track5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"
+            />
+
+        <include
+            layout="@layout/ll_join_track6"
+            android:id="@+id/join_track6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state == 6 ? View.VISIBLE :View.GONE}"
+            />
+
+        <include
+            layout="@layout/ll_join_track7"
+            android:id="@+id/join_track7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:viewModel="@{viewModel}"
+            android:visibility="@{viewModel.state >= 7  ? View.VISIBLE :View.GONE}"
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--        하단바-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:visibility="@{viewModel.state == 1 ||viewModel.view.equals(`수정`) ? View.VISIBLE :View.GONE}"
+            android:background="@color/join_bottom_bar"
+            tools:ignore="MissingConstraints">
+            <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.bottomText}"
+
+                android:textColor="@{viewModel.stateBottomText == true ? ContextCompat.getColor(context, R.color.white): ContextCompat.getColor(context, R.color.white_40)}"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

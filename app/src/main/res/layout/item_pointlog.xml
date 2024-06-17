@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    <variable
+        name="dataset"
+        type="com.supercarlounge.supercar.data.PointMallLogData" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.PointMallLogViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/dimen_5"
+        android:paddingVertical="@dimen/dimen_15">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:textSize="@dimen/_11sdp"
+            android:textColor='@{dataset.point_check.equals("1") ? @color/main_color : @color/white_70}'
+            android:text='@{dataset.point_check.equals("1") ? "+" : "-"}'/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor='@{dataset.point_check.equals("1") ? @color/main_color : @color/white_70}'
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:textSize="@dimen/_11sdp"
+            android:text="@{dataset.pol_point}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:textSize="@dimen/_11sdp"
+            android:textColor='@{dataset.point_check.equals("1") ? @color/main_color : @color/white_70}'
+            android:text="@string/pointtext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11sdp"
+            android:textColor='@{dataset.point_check.equals("1") ? @color/main_color : @color/white_70}'
+            android:text='@{dataset.GetLogtext()}'/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/_10sdp"
+            android:textColor='@{dataset.point_check.equals("1") ? @color/main_color : @color/white_70}'
+            android:text='@{dataset.GetDateText()}'/>
+    </RelativeLayout>
+</layout>

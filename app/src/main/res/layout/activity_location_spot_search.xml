@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationFragmentViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/black">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="@dimen/_3sdp"
+            android:text="로케이션 검색"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/inter_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_10"
+            android:paddingVertical="@dimen/dimen_5"
+            android:src="@drawable/ic_ar_left_24px"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/background_bg"
+        android:layout_weight="8.5"
+        android:overScrollMode="never">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical"
+            tools:context=".ui.activity.PostNoticeCheckActivity">
+            <LinearLayout
+                android:id="@+id/ll_search_on"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                tools:ignore="MissingConstraints">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/icon_search_new"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:onClick="@{()-> viewModel.eventSearch(true)}"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/textinput_layout"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_height="match_parent"
+                    android:background="@color/trn"
+                    android:gravity="center_vertical"
+                    android:padding="2dp"
+                    app:endIconMode="none">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:background="@color/trn"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
+                        android:padding="0dp"
+                        android:text="@={viewModel.searchValue}"
+                        android:hint="가고 싶은 곳을 검색 해보세요!"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginBottom="@dimen/_14sdp"
+                android:background="@color/my_page_bottom_view" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.totalViewList.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                <TextView
+                    style="@style/textview_inter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="최근 급상승 장소"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_total_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:locationTotalViewList="@{viewModel.totalViewList}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.viewList.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                <TextView
+                    style="@style/textview_inter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="최근 본 드라이브 장소"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_view_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:locationViewList="@{viewModel.viewList}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.nearList.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                <TextView
+                    style="@style/textview_inter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="회원님 근처의 이곳은 어떠세요?"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_near"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:locationNearList="@{viewModel.nearList}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!--        하단바-->
+
+    </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

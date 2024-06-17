@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.DriveWritingViewModel" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PostNoticeCheckActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/ns_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_bar"
+                android:layout_weight="9"
+                android:overScrollMode="never"
+                tools:ignore="ScrollViewCount">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.isowner ? View.VISIBLE : View.GONE}">
+
+
+                        <CheckBox
+                            android:id="@+id/cb_owner"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:layout_marginEnd="@dimen/dimen_7"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_checkbox_drive"
+                            android:button="@null"
+                            android:checked="@={viewModel.isownercheck}"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="OWNER"
+                            android:textColor="@{viewModel.isownercheck == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.check_text_non)}"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                        <CheckBox
+                            android:id="@+id/cb_passenger"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:layout_marginStart="@dimen/dimen_7"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_checkbox_drive"
+                            android:button="@null"
+                            android:checked="@={!viewModel.isownercheck}"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="Passenger"
+                            android:textColor="@{viewModel.isownercheck == false ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.check_text_non)}"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/dimen_24"
+                        android:visibility="@{viewModel.isowner ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/checkbox_drive_false"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            android:text="PASSENGER"
+                            android:textColor="@color/white_40" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_40"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.isownercheck ==true ? View.VISIBLE : View.GONE}">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_20sdp"
+                                android:background="@{viewModel.myCarChecked2 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_2"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked2 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@{viewModel.myCarChecked1 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_1"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked1 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_20sdp"
+                                android:background="@{viewModel.myCarChecked3 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_3"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked3 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:gravity="center"
+                            android:text="차량 모델을 선택해 주세요\n 선택하지 않는 경우 비공개로 업로드 됩니다"
+                            android:textColor="@color/white_70"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_marginHorizontal="@dimen/dimen_24"
+                            android:layout_marginTop="@dimen/dimen_40"
+                            android:background="@color/home_bottom_view" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_32"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/image_set"
+                            android:layout_width="@dimen/dimen_131"
+                            android:layout_height="@dimen/dimen_131"
+                            android:scaleType="centerInside"
+                            app:setimagedrive="@{viewModel.mainImageUrl}" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_11"
+                            android:text="@string/cover_photo_upload"
+                            android:textColor="@color/white_70"
+                            android:textSize="@dimen/_11sdp"
+                            android:visibility="@{viewModel.mainImageUrl.isEmpty()? View.VISIBLE : View.GONE}" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_327"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/dimen_30"
+                        android:background="@drawable/coner_round_drive_vip_box_bg"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_10">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/textinput_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_30"
+                            android:layout_marginHorizontal="@dimen/dimen_14"
+                            android:background="@color/trn"
+                            android:gravity="center_vertical"
+                            android:padding="2dp"
+                            app:endIconMode="none"
+
+                            >
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/trn"
+                                android:gravity="center_vertical"
+                                android:hint="제목을 입력해 주세요."
+                                android:padding="2dp"
+                                android:singleLine="true"
+                                android:text="@={viewModel.dtitletext}"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="@dimen/_10sdp"
+                                tools:ignore="Deprecated" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_marginHorizontal="@dimen/dimen_14"
+                            android:layout_marginVertical="@dimen/dimen_8"
+                            android:background="@color/home_bottom_view" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/textinput_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="@dimen/dimen_14"
+                            android:background="@color/trn"
+                            android:padding="2dp"
+                            app:endIconMode="none"
+
+                            >
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_certification_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/trn"
+                                android:gravity="top"
+                                android:hint="내용을 입력해 주세요."
+                                android:padding="2dp"
+                                android:text="@={viewModel.dcontenttext}"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white_50"
+                                android:textSize="@dimen/_10sdp"
+                                tools:ignore="Deprecated" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_30"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/dimen_24"
+                                android:layout_height="@dimen/dimen_24"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/icon_calendar" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_title"
+                                android:textColor=" @color/gray"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+
+                            android:onClick="@{()->viewModel.setlikedate(0)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_date == 0}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_text1"
+                                android:textColor="@{viewModel.like_drive_date == 0 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+                            android:onClick="@{()->viewModel.setlikedate(1)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_date == 1}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_text2"
+                                android:textColor="@{viewModel.like_drive_date == 1 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_30"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/dimen_24"
+                                android:layout_height="@dimen/dimen_24"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/icon_emoticon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_type_title"
+                                android:textColor=" @color/gray"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+                            android:onClick="@{()->viewModel.setliketype(0)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_type == 0}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_type1"
+                                android:textColor="@{viewModel.like_drive_type == 0 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+                            android:onClick="@{()->viewModel.setliketype(1)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_type == 1}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_type2"
+                                android:textColor="@{viewModel.like_drive_type == 1 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+                            android:onClick="@{()->viewModel.setliketype(2)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_type == 2}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_type3"
+                                android:textColor="@{viewModel.like_drive_type == 2 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_24"
+                            android:clickable="true"
+                            android:onClick="@{()->viewModel.setliketype(3)}"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:background="@drawable/custom_checkbox_post_noti"
+                                android:button="@null"
+                                android:checked="@{viewModel.like_drive_type == 3}"
+                                android:clickable="false"
+                                android:gravity="center"
+                                android:textColor="@color/check_text_non"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/drive_date_type4"
+                                android:textColor="@{viewModel.like_drive_type == 3 ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="슈라의 홈화면에 가장 먼저 노출이 되며, 스크롤 시에도\n상단에 고정 노출되어, 매칭 성사의 가능성을 높여줍니다."
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_10sdp"
+                        android:visibility="@{(viewModel.viptype != 1 &amp;&amp; viewModel.viptype != 3) ? View.VISIBLE : View.GONE}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_48"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:background="@drawable/coner_round_drive_vip_box_bg"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_10"
+                        android:visibility="@{(viewModel.viptype != 1 &amp;&amp; viewModel.viptype != 3) ? View.VISIBLE : View.GONE}">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_15"
+
+                            android:scaleType="centerInside"
+                            android:src="@drawable/vip_01_24x24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_5_5"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:text="VIP DRIVE"
+                            android:textColor="@color/round_color1"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <androidx.legacy.widget.Space
+                            android:layout_width="0dip"
+                            android:layout_height="0dip"
+                            android:layout_weight="1" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_5_5"
+                            android:clickable="true"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:onClick="@{()->viewModel.setvipmode()}"
+                            android:text="신청하기"
+                            android:textColor="@color/round_color1"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_15"
+
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_ar_left_16x16" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+            <!--    타이틀바-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:background="@color/black">
+
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/optimus_princeps_pemi_bold"
+                    android:text="드라이브 등록"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    android:lineSpacingExtra="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_ar_left_24px"
+                    android:paddingVertical="@dimen/dimen_5"
+                    android:paddingHorizontal="@dimen/dimen_10"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_52"
+                android:layout_alignParentBottom="true"
+                android:background="@color/join_bottom_bar"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.setpost()}"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+                <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+                <TextView
+                    android:id="@+id/tv_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="@{()-> viewModel.setpost()}"
+                    android:text="등록하기"
+                    android:textColor="@color/bottom_bar_text"
+                    android:textSize="@dimen/_11sdp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <ImageView
+                android:id="@+id/iv_loading"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+
+                android:layout_centerInParent="true"
+                android:visibility="@{viewModel.apicall ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--        하단바-->
+
+
+</layout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.SecessionViewModel">
+
+
+        </variable>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="wrap_content"
+        android:background="@color/trn"
+        android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_dialog"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_310sdp"
+                android:background="@drawable/popbg_1000x1000"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                >
+<!--                android:background="@drawable/popbg_1000x1000"-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_lefticon_1"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                            android:fontFamily="@font/inter_regular"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="탈퇴문의"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/inter_regular"
+                        android:layout_marginTop="@dimen/_12sdp"
+
+                        android:text="저희 앱에서 불편을 느끼게 해드려 죄송합니다.\n실수 또는 고의적인 탈퇴를 방지하기 위하여\n수동으로 검토하는 탈퇴 절차가 1~3일 소요됩니다.\n탈퇴하시더라도 작성한 게시글 및 댓글은\n삭제되지 않는 점 참고해주시기 바랍니다."
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_7sdp" />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:fontFamily="@font/inter_regular"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="탈퇴신청 사유"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edt_box_secession"
+                        style="@style/textinput_layout"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center_vertical"
+                        android:padding="1dp"
+                        android:background="@drawable/coner_round_heart_bg"
+                        app:endIconMode="none">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_secession"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/inter_medium"
+                            android:hint="어떠한 점 때문에 탈퇴를 결정하셨나요?"
+                            android:lines="1"
+                            android:textSize="@dimen/_7sdp"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white_70"
+                            tools:ignore="Deprecated" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/white_70"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="center"
+                        android:fontFamily="@font/inter_regular"
+
+                        android:text="위 내용을 확인 하셨다면 체크해주세요."
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+                    <LinearLayout
+                        android:id="@+id/ll_cheked"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        >
+
+
+                        <CheckBox
+                            android:id="@+id/cb_heart2"
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:background="@{viewModel.checkSecession? @drawable/login_act_check_24px : @drawable/login_check_24px}"
+                            android:button="@null"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:onCheckedChanged="@{(view, checked) -> viewModel.setcheckSecession(checked)}"
+                            android:textColor="@color/check_text_non"
+                            android:textSize="@dimen/_11sdp" />
+                        <!--                        android:checked="@{viewModel.checkSecession}"-->
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="탈퇴 및 회원정보 삭제 요청"
+                            android:textColor="@color/white_70"
+                            android:textSize="@dimen/_7sdp" />
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="취소"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_10sdp" />
+                    <TextView
+                        android:id="@+id/ok"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="문의하기"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <!--            android:text="@={viewModel.tv_ok}"-->
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</layout>

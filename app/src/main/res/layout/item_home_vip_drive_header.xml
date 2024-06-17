@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemHomeVipDriveHeaderBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.HomeData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_27dp"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_32"
+            android:fontFamily="@font/inter_medium"
+            android:text="특별한 회원을 만날 수 있는 공간"
+            android:textColor="@color/white_80"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_5_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:letterSpacing="0.08"
+                android:text="@{dataset.context}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/btn_vip_mini"
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_frame_2413" />
+
+                <ImageView
+                    android:id="@+id/btn_vip_question"
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/question_24x24" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@color/home_bottom_view" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

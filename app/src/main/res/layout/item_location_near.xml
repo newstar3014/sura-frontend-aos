@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemLocationNearBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.LocationSpotData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationFragmentViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="android.view.View" />
+    </data>
+
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_124sdp"
+            android:layout_height="@dimen/_124sdp"
+            android:gravity="center"
+            android:background="@drawable/coner_round_post_bg_dash"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:visibility="@{dataset.spot_seq.equals(``) == true ? View.VISIBLE : View.GONE }">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_plus_w"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="@dimen/_11sdp"
+                android:text="더보기"/>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_124sdp"
+            app:cardCornerRadius="@dimen/_4sdp"
+            android:visibility="@{dataset.spot_seq.equals(``) == true ? View.GONE : View.VISIBLE }"
+            android:layout_height="@dimen/_124sdp">
+
+            <ImageView
+                android:id="@+id/item_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/item_sample1"
+                app:nearImage="@{dataset.spot_main_image}"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:visibility="@{dataset.spot_seq.equals(``) == true ? View.GONE : View.VISIBLE }"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/view_bottom"
+            android:lines="1"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/textview_inter_title"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="@{dataset.spot_title}"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/dimen_7_5"
+            android:textSize="@dimen/_12sdp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

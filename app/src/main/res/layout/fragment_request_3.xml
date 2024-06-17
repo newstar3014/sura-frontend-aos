@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.ProfileRequestViewModel"/>
+    </data>
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_profile_view"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.requestlist.size() != 0 ? View.VISIBLE :View.GONE}"
+            app:requestlist="@{viewModel.requestlist}"
+
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            android:visibility="@{viewModel.requestlist.size() == 0 ? View.VISIBLE :View.GONE}"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/userlist_80x80"
+                android:layout_marginTop="@dimen/_70sdp"
+                android:scaleType="centerInside"
+               />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="프로필 열람 신청이 없습니다"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/dimen_16"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>
+</layout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data class="ItemRecentDrive">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.RecentDriveListData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.RecentDriveViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <variable
+            name="status"
+            type="String" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--삭제 버튼 있는 레이아웃-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center_vertical"-->
+<!--            >-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+
+<!--                />-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/delete"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/dimen_80"-->
+<!--                android:layout_weight="5"-->
+<!--                app:cardCornerRadius="@dimen/dimen_2"-->
+<!--                -->
+<!--                android:backgroundTint="#2C2C2C"-->
+<!--                android:elevation="@dimen/dimen_4"-->
+<!--                android:shadowColor="@color/black"-->
+<!--                android:shadowDy="@integer/material_motion_duration_medium_1"-->
+<!--                android:visibility="@{viewModel.cursorPosition == posi ? viewModel.swipe == true ? View.VISIBLE :View.INVISIBLE : View.INVISIBLE }"-->
+<!--                >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_gravity="center"-->
+
+<!--                >-->
+
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginBottom="@dimen/dimen_7"-->
+<!--                    android:src="@drawable/delete_24x24" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="삭제"-->
+<!--                    android:textColor="@color/white" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+
+<!--        </LinearLayout>-->
+
+        <!--기본 레이아웃-->
+        <LinearLayout
+            android:id="@+id/swipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                app:round_photo2="@{dataset}"
+               />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:text="@{dataset.u_nickname}"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:textSize="@dimen/_11sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:text="@{dataset.setTime()}"
+                android:textColor="@color/white_50"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:textSize="@dimen/_9sdp" />
+
+            <ImageView
+                android:id="@+id/iv_log"
+                android:layout_width="@dimen/_4sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/circle_red"
+                android:visibility="@{dataset.mypage_view.equals(`N`) ? View.VISIBLE:View.GONE}"
+                android:layout_marginStart="@dimen/dimen_10"
+
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>

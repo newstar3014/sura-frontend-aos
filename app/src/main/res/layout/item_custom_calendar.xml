@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="istitle"
+            type="Boolean"/>
+        <variable name="date"
+            type="String"/>
+        <variable name="issun"
+            type="Boolean"/>
+        <variable name="isset"
+            type="Boolean"/>
+        <import type="android.view.View" />
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="@dimen/dimen_50"
+    android:layout_height="@dimen/dimen_50"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        style="@style/textview_inter"
+        android:gravity="center"
+        android:text="@{date}"
+        android:background="@{isset ? @drawable/circle_main:@drawable/circle_trn}"
+        android:textColor="@{issun ? @color/red : (istitle ? @color/white_30:@color/white)}"/>
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

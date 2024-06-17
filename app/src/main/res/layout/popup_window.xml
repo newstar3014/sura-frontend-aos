@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="PopUpWindowBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="type"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/dimen_10"
+        android:background="@color/round_edt_box">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{type == 0 ? View.VISIBLE:View.GONE}">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btn_police"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/declaration_16x16" />
+
+            <TextView
+                style="@style/textview_inter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:text="@string/declaration"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btn_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/prohibition_16x16" />
+
+            <TextView
+                style="@style/textview_inter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:text="@string/block"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{type == 1 ? View.VISIBLE:View.GONE}">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/write_16x16" />
+
+                <TextView
+                    style="@style/textview_inter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:text="@string/edit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/delete_16x16" />
+
+                <TextView
+                    style="@style/textview_inter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:text="@string/delete"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
+
+</layout>

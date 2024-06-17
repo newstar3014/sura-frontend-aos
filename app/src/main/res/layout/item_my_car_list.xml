@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ItemMyCarList">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.UserInformationCarData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarInformationModel" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="posi"
+            type="Integer" />
+
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/item_iv"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+             />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_sub"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:text="@{dataset.carm_name != null ?dataset.carm_name : dataset.uc_model}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:visibility="@{dataset.carb_image.equals(``) || dataset.carb_image == null ? View.INVISIBLE :View.VISIBLE}"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LikeSendViewModel" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PostNoticeCheckActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:text="호감보내기"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ic_ar_left_24px"
+                android:paddingVertical="@dimen/dimen_5"
+                android:paddingHorizontal="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:overScrollMode="never"
+            tools:ignore="ScrollViewCount">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_51"
+                    android:layout_marginBottom="@dimen/dimen_16"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_an"
+                        android:layout_width="@dimen/dimen_56"
+                        android:layout_height="@dimen/dimen_56"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/delete_24x24" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginBottom="@dimen/dimen_16"
+                    android:background="@color/home_bottom_view" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/dimen_8"
+                    android:text="호감 발송시 10 하트가 소모됩니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:layout_width="@dimen/dimen_248"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:gravity="center"
+                    android:text="진심을 담은 짧은 메시지를 작성하실 수 있습니다.
+연락처를 공개하는 행위는
+이용약관에 위배되어 제재 대상이 됩니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:layout_marginBottom="@dimen/dimen_40"
+                android:background="@drawable/coner_round_crush_send_bg"
+                android:gravity="center"
+                android:minHeight="@dimen/dimen_200"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10"
+                tools:ignore="RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textinput_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/trn"
+                    android:gravity="center_vertical"
+                    android:padding="1dp"
+                    app:endIconMode="none"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/trn"
+                        android:gravity="center_vertical"
+                        android:padding="1dp"
+                        android:textColor="@color/white_70"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:maxLength="80"
+                        android:textStyle="bold"
+                        android:text="@={viewModel.inputtext}"
+                        tools:ignore="Deprecated" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_48"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/coner_round_drive_vip_box_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_10">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_15"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/flexhart_24x24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5_5"
+                        android:text="플렉스 호감 보내기"
+                        android:textColor="@color/round_color1"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:layout_width="@dimen/dimen_22"
+                        android:layout_height="@dimen/dimen_22"
+                        android:background="@drawable/custom_checkbox_crush_send"
+                        android:button="@null"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:checked="@={viewModel.flexcheck}"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_300"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:text="플렉스 호감은 20개의 하트로 상대가 호감을 수락하면
+                       연락처가 바로 공개됩니다. 호감을 받은 상대는 일반 호감과, 플렉스 호감 중 어떤 호감인지 알 수 없습니다."
+                        android:textColor="@color/gray"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:textSize="@dimen/_10sdp" />
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_52"
+            android:background="@color/join_bottom_bar"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="@{()->viewModel.LikeSendSet()}"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+            <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보내기"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--        하단바-->
+
+
+</layout>

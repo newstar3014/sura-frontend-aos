@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.JoinViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+
+                    android:text="본인 키를\n선택해 주세요."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14"
+                    android:visibility="invisible" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_0"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.heightCheckedArray[0] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[0]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(0,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[0]}"
+                                android:textColor="@{viewModel.heightCheckedArray[0] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.heightCheckedArray[2] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(2,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[2]}"
+                                android:textColor="@{viewModel.heightCheckedArray[2] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.heightCheckedArray[4] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[4]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(4,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[4]}"
+                                android:textColor="@{viewModel.heightCheckedArray[4] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.heightCheckedArray[6] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(6,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[6]}"
+                                android:textColor="@{viewModel.heightCheckedArray[6] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.heightCheckedArray[1] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[1]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(1,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[1]}"
+                                android:textColor="@{viewModel.heightCheckedArray[1] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.heightCheckedArray[3] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[3]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(3,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[3]}"
+                                android:textColor="@{viewModel.heightCheckedArray[3] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.heightCheckedArray[5] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[5]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(5,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[5]}"
+                                android:textColor="@{viewModel.heightCheckedArray[5] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.heightCheckedArray[7] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.heightCheckedArray[7]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setHeightSelect(7,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.heightArray[7]}"
+                                android:textColor="@{viewModel.heightCheckedArray[7] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>

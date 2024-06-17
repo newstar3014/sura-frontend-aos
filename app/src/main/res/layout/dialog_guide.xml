@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogGuideViewModel">
+
+
+        </variable>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:background="@color/trn"
+        android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/ll_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black_70"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_20"
+                android:paddingBottom="@dimen/dimen_10"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_guide"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/guide_img1" />
+
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:background="@drawable/circle_white"
+                    android:src="@drawable/ic_dialog_close_light"/>
+            </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

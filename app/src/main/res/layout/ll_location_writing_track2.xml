@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.NewDriveWritingViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+
+                    android:text="언제 만날까요?"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14"
+                    android:visibility="invisible" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_weight="1"
+                        android:background="@{viewModel.type3 == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                        android:button="@null"
+                        android:checked="@={viewModel.type3}"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dimen_15"
+                        android:text="연락하며 정하기"
+                        android:textColor="@{viewModel.type3 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@{viewModel.type4 == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                        android:button="@null"
+                        android:checked="@={viewModel.type4}"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dimen_15"
+                        android:text="날짜 선택하기"
+                        android:textColor="@{viewModel.type4 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.type4 == true ?View.VISIBLE :View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_calender" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="날짜"
+                            android:textColor="@color/text_guide"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="확인"
+                            android:textColor="@color/main_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <!--                    캘린더-->
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/coner_round_black_272727"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:fontFamily="@font/inter_bold"
+                                android:text="@{viewModel.monthString}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_17sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:fontFamily="@font/inter_bold"
+                                android:text="@{viewModel.yearString}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_17sdp" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ar_right_cloudy_24x24" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:layout_gravity="center"
+                                android:onClick="@{()->viewModel.backMonth(true)}"
+                                android:src="@drawable/ar_left_cloudy_24x24" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:layout_gravity="center"
+                                android:onClick="@{()->viewModel.nextMonth(true)}"
+                                android:src="@drawable/ar_right_cloudy_24x24" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <com.supercarlounge.supercar.customview.CustomGridView
+                            android:id="@+id/gridView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center"
+                            android:columnWidth="50dp"
+                            android:gravity="center"
+                            android:horizontalSpacing="2dp"
+                            android:numColumns="7"
+                            android:scrollbars="none" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_time" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="시간"
+                            android:textColor="@color/text_guide"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="확인"
+                            android:textColor="@color/main_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_40sdp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_28sdp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/coner_round_back_8" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="0"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <!--시간-->
+                                <cn.carbswang.android.numberpickerview.library.NumberPickerView
+                                    android:id="@+id/hour_picker"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="#11333333"
+                                    app:npv_DividerColor="@color/trn"
+                                    app:npv_ItemPaddingHorizontal="5dp"
+                                    app:npv_RespondChangeOnDetached="false"
+                                    app:npv_ShownCount="5"
+                                    app:npv_TextColorHint="@color/black"
+                                    app:npv_TextColorNormal="@color/white_60"
+                                    app:npv_TextColorSelected="@color/white"
+                                    app:npv_TextSizeNormal="@dimen/_16sdp"
+                                    app:npv_TextSizeSelected="@dimen/_20sdp"
+                                    app:npv_WrapSelectorWheel="true" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <!--분-->
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="0"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <cn.carbswang.android.numberpickerview.library.NumberPickerView
+                                    android:id="@+id/min_picker"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="#11333333"
+                                    app:npv_DividerColor="@color/trn"
+                                    app:npv_ItemPaddingHorizontal="5dp"
+                                    app:npv_RespondChangeOnDetached="false"
+                                    app:npv_ShownCount="5"
+                                    app:npv_TextColorHint="@color/black"
+                                    app:npv_TextColorNormal="@color/white_60"
+                                    app:npv_TextColorSelected="@color/white"
+                                    app:npv_TextSizeNormal="@dimen/_16sdp"
+                                    app:npv_TextSizeSelected="@dimen/_20sdp"
+                                    app:npv_WrapSelectorWheel="true" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <!--            오전오후-->
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="20dp"
+                                android:layout_weight="0"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <cn.carbswang.android.numberpickerview.library.NumberPickerView
+                                    android:id="@+id/type_picker"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerHorizontal="true"
+
+                                    android:background="#11333333"
+
+                                    app:npv_DividerColor="@color/trn"
+                                    app:npv_ItemPaddingHorizontal="5dp"
+                                    app:npv_RespondChangeOnDetached="false"
+                                    app:npv_ShownCount="2"
+                                    app:npv_TextColorHint="@color/black"
+                                    app:npv_TextColorNormal="@color/white_60"
+                                    app:npv_TextColorSelected="@color/white"
+                                    app:npv_TextSizeNormal="@dimen/_16sdp"
+                                    app:npv_TextSizeSelected="@dimen/_20sdp"
+                                    app:npv_WrapSelectorWheel="true" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <!--        확인 취소-->
+                    </RelativeLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+
+
+</layout>

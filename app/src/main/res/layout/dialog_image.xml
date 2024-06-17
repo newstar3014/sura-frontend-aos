@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogLocationPermissionViewModel">
+
+
+        </variable>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="wrap_content"
+        android:background="@color/trn"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_dialog"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/popbg_1000x500"
+            android:orientation="vertical">
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="기본 이미지 사용"
+                    android:onClick="@{()->viewModel.cancelEvent(true)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/main_vip_item_stroke2"
+                    />
+                <TextView
+                    android:id="@+id/ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="앨범에서 선택"
+                    android:onClick="@{()->viewModel.okEvent(true)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <!--            android:text="@={viewModel.tv_ok}"-->
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</layout>

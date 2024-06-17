@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemHomeTopBannerMultiBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.HomeData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager_banner_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginBottom="@dimen/dimen_27dp"
+            android:layoutDirection="rtl"
+            app:banners="@{viewModel.MHomeBanner1List}" />
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

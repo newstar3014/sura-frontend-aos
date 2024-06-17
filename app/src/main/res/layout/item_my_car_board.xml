@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemMyCarBoardBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.MyCarBoardData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarBoardViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+
+    </data>
+
+
+
+        <LinearLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dimen_8"
+                >
+
+
+                <ImageView
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:src="@{dataset.u_gender.equals(`MALE`) ? @drawable/ic_man_12x12 :@drawable/ic_woman_12x12}"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginRight="@dimen/dimen_8"
+                    android:text="@{dataset.mrc_nickname}"
+                    android:textColor="@color/white"
+
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{dataset.mrc_nickname}"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:id="@+id/tv_view_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="드라이브 신청"
+
+                   android:background="@drawable/coner_round_browse"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_9sdp"
+                    android:visibility="@{viewModel.userdata.u_seq == dataset.u_seq ? View.GONE:View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/dimen_8"
+                app:cardElevation="0dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                app:strokeColor="@android:color/transparent"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_140sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+
+                    app:mainPhoto="@{dataset.mmi_img}" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="top"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:fontFamily="@font/inter_medium"
+                    android:ellipsize="end"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:text="@{dataset.mmi_title}"
+                    android:textColor="@color/white"
+
+                    android:textSize="@dimen/_12sdp" />
+                    <ImageView
+                        android:layout_width="@dimen/dimen_44"
+                        android:layout_height="@dimen/dimen_44"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:logo="@{dataset.carb_image}"/>
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1"/>-->
+
+
+
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/_45sdp"-->
+<!--                    android:layout_height="@dimen/_45sdp"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    app:mainBrand="@{dataset.carb_image}"/>-->
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_12sdp"
+                >
+
+
+
+                <ImageView
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/icon_like"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:text="@{dataset.getlike()}"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+
+                    />
+
+                <ImageView
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/icon_coments"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:fontFamily="@font/inter_regular"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:text="@{dataset.getComents()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+
+                    />
+                <ImageView
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/icon_views"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:text="@{dataset.getViews()}"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+
+                    />
+
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/ll_sub"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@color/white_30" />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

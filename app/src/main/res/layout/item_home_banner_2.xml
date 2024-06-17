@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemHomeBanner2Binding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ConciergeData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager_banner_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_96"
+            android:layout_marginBottom="@dimen/dimen_27dp"
+            android:layoutDirection="rtl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

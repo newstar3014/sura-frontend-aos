@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="image_list">
+        <item>@drawable/draw_1</item>
+        <item>@drawable/draw_2</item>
+        <item>@drawable/draw_3</item>
+    </array>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemPostFilterBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.BoardCategoryData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.PostWritingViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/item"
+            android:layout_width="@dimen/dimen_55"
+            android:layout_height="@dimen/dimen_24"
+            android:background="@{viewModel.filterPosition == posi ? @drawable/coner_round_filter_bg_s :@drawable/coner_round_filter_bg}"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/_9sdp"
+                android:text="@{dataset.text}"
+                android:textColor="@color/white" />
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

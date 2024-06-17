@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable name="viewModel" type="com.supercarlounge.supercar.viewmodel.BoardViewModel"/>
+    </data>
+    <RelativeLayout
+        tools:context=".ui.fragment.pagerconicergef.AnonymousForumNotiFragment"
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_12sdp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_anonymous_forum_post_noti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:overScrollMode="never"
+                app:AnonymousForumPostNotiList="@{viewModel.anonymousForumNoitList}" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:visibility="@{viewModel.issend ? View.VISIBLE:View.GONE}">
+            <ImageView
+                android:layout_width="@dimen/dimen_50"
+                android:layout_height="@dimen/dimen_50"
+                android:background="@color/trn"
+                app:gif="@{true}" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:visibility="@{viewModel.apicall ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>
+

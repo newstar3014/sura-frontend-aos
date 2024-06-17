@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data class="ItemProfileBrowseBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ProfileRequestData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OnwerViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--삭제 버튼 있는 레이아웃-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_8"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvRemove"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/red"
+                android:text="삭제"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+        </LinearLayout>
+
+        <!--기본 레이아웃-->
+        <LinearLayout
+            android:id="@+id/swipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@color/white_8"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/white_8"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/handleIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/delete_24x24"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_woman_12x12"/>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@{dataset.b_title}"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/textViewOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#8942;"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textAppearance="?android:textAppearanceMedium" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>

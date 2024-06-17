@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    <variable
+        name="dataset"
+        type="com.supercarlounge.supercar.data.PointMallProductData" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.PointMallViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_159"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/dimen_140"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dimen_15">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                setproductphoto="@{dataset.goodsImgB}"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter_title"
+                android:textSize="@dimen/_15sdp"
+                android:text="@{dataset.brandName}"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9sdp"
+                style="@style/textview_inter"
+                android:text="@{dataset.goodsName}"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:layout_above="@id/ll_trade">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    style="@style/textview_inter_title"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@={dataset.realPrice}"/>
+                <TextView
+                    android:layout_width="@dimen/dimen_20"
+                    android:layout_height="@dimen/dimen_20"
+                    android:background="@drawable/circle_main"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_12"
+                    android:text="P"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_trade"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/coner_round_crush_send_bg">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/trade"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.NewDriveWritingViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:viewBindingIgnore="true">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:orientation="vertical">
+
+                <!--                남자오너,여자오너일떄-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.isownercheck ==true ? View.VISIBLE : View.GONE}">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/_36sdp"
+                        android:fontFamily="@font/inter_bold"
+
+                        android:text="보유 차종 공개 여부"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/dimen_2"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="최대 2개까지 선택 가능합니다."
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/dimen_14"
+                        android:visibility="invisible" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:layout_weight="1"
+                            android:background="@{viewModel.type5 == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                            android:button="@null"
+                            android:checked="@={viewModel.type5}"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="OWNER"
+                            android:textColor="@{viewModel.type5 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                        <CheckBox
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:background="@{viewModel.type6== true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                            android:button="@null"
+                            android:checked="@={viewModel.type6}"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="PASSENGER"
+                            android:textColor="@{viewModel.type6 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_40"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.type5 ==true ? View.VISIBLE : View.GONE}">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_20sdp"
+                                android:background="@{viewModel.myCarChecked2 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_2"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked2 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@{viewModel.myCarChecked1 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_1"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked1 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_my_car_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_20sdp"
+                                android:background="@{viewModel.myCarChecked3 == true ?  @drawable/coner_round_select_car : @drawable/coner_round_trn}"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_8sdp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/iv_my_car_3"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_main" />
+
+                                <TextView
+                                    android:id="@+id/tv_my_car_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/optimus_princeps"
+
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_8sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:text="선택차량"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:visibility="@{viewModel.myCarChecked3 == true ? View.VISIBLE : View.INVISIBLE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:gravity="center"
+                            android:text="차량 모델을 선택해 주세요\n 선택하지 않는 경우 비공개로 업로드 됩니다"
+                            android:textColor="@color/white_70"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_marginHorizontal="@dimen/dimen_24"
+                            android:layout_marginTop="@dimen/dimen_40"
+                            android:background="@color/home_bottom_view" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="🤔 어떤 드라이브를 하고 싶으세요?"
+                    android:textColor="@color/bottom_sheet_non"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(0)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[0]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[0]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[0]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(1)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[1]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[1]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[1]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(2)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[2]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[2]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[2]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(3)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[3]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[3]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[3]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(4)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[4]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[4]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[4]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(5)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[5]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[5]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[5]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.arrayBooleantype3Event(6)}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:background="@drawable/custom_checkbox_post_noti"
+                        android:button="@null"
+                        android:checked="@={viewModel.arrayBooleantype3[6]}"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:textColor="@color/check_text_non"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.arraytype3[6]}"
+                        android:textColor="@{viewModel.arrayBooleantype3[6]  ? @color/white : @color/gray }"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>

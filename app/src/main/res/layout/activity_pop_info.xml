@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.PopInfoViewModel" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/trn20"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PostNoticeActivity">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_cancel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="오늘 하루 보지 않기"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_cancel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="닫기"
+                android:textSize="@dimen/_12sdp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <com.supercarlounge.supercar.CustomViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:popbanners="@{viewModel.popUpinfoData}"
+                tools:ignore="NotSibling" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_alignBottom="@+id/pager"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+
+                    android:background="@drawable/coner_round_pop_bg"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_2sdp">
+
+                    <TextView
+                        android:id="@+id/now_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@{viewModel.position.toString()}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="/"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+                        android:id="@+id/max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@{viewModel.popUpinfoData_size.toString()}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_1"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+
+                <!--                            android:src="@{viewModel.position ==0? @drawable/round_check : @drawable/round_gray}"-->
+                <!--                        android:visibility="@{viewModel.popUpinfoData_size>=1 ? View.VISIBLE :View.GONE}"/>-->
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_2"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=2 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==1? @drawable/round_check : @drawable/round_gray}"/>-->
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_3"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=3 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==2? @drawable/round_check : @drawable/round_gray}"/>-->
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_4"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=4 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==3? @drawable/round_check : @drawable/round_gray}"/>-->
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_5"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=5 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==4? @drawable/round_check : @drawable/round_gray}"/>-->
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_6"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=6 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==5? @drawable/round_check : @drawable/round_gray}"/>-->
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_7"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=7 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==6? @drawable/round_check : @drawable/round_gray}"/>-->
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_8"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=8 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==7? @drawable/round_check : @drawable/round_gray}"/>-->
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_9"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=9 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==8? @drawable/round_check : @drawable/round_gray}"/>-->
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/check_10"-->
+                <!--                            android:layout_width="@dimen/_8sdp"-->
+                <!--                            android:layout_height="@dimen/_8sdp"-->
+                <!--                            android:layout_marginHorizontal="@dimen/_2sdp"-->
+                <!--                            android:visibility="@{viewModel.popUpinfoData_size>=10 ? View.VISIBLE :View.GONE}"-->
+                <!--                            android:src="@{viewModel.position ==9? @drawable/round_check : @drawable/round_gray}"/>-->
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

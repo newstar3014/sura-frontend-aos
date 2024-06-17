@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemNotice2Binding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.AlimData" />
+
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.AlimViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+
+                android:maxLines="2"
+                android:text="@{dataset.getTitle()}"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+            <ImageView
+                android:id="@+id/iv_log"
+                android:layout_width="@dimen/dimen_10"
+                android:layout_height="@dimen/dimen_10"
+                android:src="@drawable/circle_red"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:visibility="@{dataset.pa_check ==1 ? View.GONE:View.VISIBLE}"
+                />
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tv_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@{dataset.getBody()}"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:visibility="@{dataset.getBody().equals(``) || dataset.getBody() == null ? View.GONE :View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/Blank"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@{dataset.timestring}"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/white_80"
+            android:textSize="@dimen/_7sdp"
+            android:visibility="@{dataset.timestring.equals(``) || dataset.timestring == null ? View.GONE :View.VISIBLE}"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+
+            android:background="@color/my_page_bottom_view" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

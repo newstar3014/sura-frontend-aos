@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    <variable
+        name="dataset"
+        type="com.supercarlounge.supercar.data.CompanyPhoneData" />
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/dimen_10"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:textSize="@dimen/_11sdp"
+            style="@style/textview_inter"
+            android:textColor='@color/white'
+            android:text='@{dataset.phone_name}'/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11sdp"
+            style="@style/textview_inter_title"
+            android:textColor='@color/white'
+            android:text='@{dataset.phone_num}'/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="@color/my_page_bottom_view"
+            app:layout_constraintTop_toBottomOf="parent"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

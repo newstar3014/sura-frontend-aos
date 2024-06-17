@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.JoinViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="직업을\n선택해 주세요."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14"
+                    android:visibility="invisible" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_0"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.jobCheckedArray[0] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[0]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(0,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[0]}"
+                                android:textColor="@{viewModel.jobCheckedArray[0] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+
+                                android:background="@{viewModel.jobCheckedArray[2] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(2,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[2]}"
+                                android:textColor="@{viewModel.jobCheckedArray[2] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[4] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[4]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(4,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[4]}"
+                                android:textColor="@{viewModel.jobCheckedArray[4] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+
+                                android:background="@{viewModel.jobCheckedArray[6] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(6,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[6]}"
+                                android:textColor="@{viewModel.jobCheckedArray[6] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[8] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[8]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(8,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[8]}"
+                                android:textColor="@{viewModel.jobCheckedArray[8] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_10"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[10] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[10]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(10,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[10]}"
+                                android:textColor="@{viewModel.jobCheckedArray[10] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[12] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[12]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(12,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[12]}"
+                                android:textColor="@{viewModel.jobCheckedArray[12] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_14"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[14] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[14]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(14,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[14]}"
+                                android:textColor="@{viewModel.jobCheckedArray[14] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_16"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[16] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[16]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(16,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[16]}"
+                                android:textColor="@{viewModel.jobCheckedArray[16] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_18"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[18] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[18]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(18,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[18]}"
+                                android:textColor="@{viewModel.jobCheckedArray[18] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_20"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[20] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[20]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(20,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[20]}"
+                                android:textColor="@{viewModel.jobCheckedArray[20] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_22"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[22] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[22]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(22,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[22]}"
+                                android:textColor="@{viewModel.jobCheckedArray[22] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_24"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[24] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[24]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(24,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[24]}"
+                                android:textColor="@{viewModel.jobCheckedArray[24] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.jobCheckedArray[1] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[1]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(1,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[1]}"
+                                android:textColor="@{viewModel.jobCheckedArray[1] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[3] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[3]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(3,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[3]}"
+                                android:textColor="@{viewModel.jobCheckedArray[3] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[5] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[5]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(5,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[5]}"
+                                android:textColor="@{viewModel.jobCheckedArray[5] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[7] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[7]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(7,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[7]}"
+                                android:textColor="@{viewModel.jobCheckedArray[7] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[9] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[9]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(9,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[9]}"
+                                android:textColor="@{viewModel.jobCheckedArray[9] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_11"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[11] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[11]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(11,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[11]}"
+                                android:textColor="@{viewModel.jobCheckedArray[11] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_13"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[13] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[13]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(13,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[13]}"
+                                android:textColor="@{viewModel.jobCheckedArray[13] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_15"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[15] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[15]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(15,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[15]}"
+                                android:textColor="@{viewModel.jobCheckedArray[15] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_17"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[17] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[17]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(17,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[17]}"
+                                android:textColor="@{viewModel.jobCheckedArray[17] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_19"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[19] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[19]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(19,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[19]}"
+                                android:textColor="@{viewModel.jobCheckedArray[19] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_21"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[21] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[21]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(21,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[21]}"
+                                android:textColor="@{viewModel.jobCheckedArray[21] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_23"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[23] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[23]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(23,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[23]}"
+                                android:textColor="@{viewModel.jobCheckedArray[23] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_25"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@{viewModel.jobCheckedArray[25] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.jobCheckedArray[25]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setJobSelect(25,true)}"
+                                android:paddingHorizontal="@dimen/_9sdp"
+                                android:text="@{viewModel.jobArray[25]}"
+                                android:textColor="@{viewModel.jobCheckedArray[25] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_9sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>

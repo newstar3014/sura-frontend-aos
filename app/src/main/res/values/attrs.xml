@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ItemMySubInfo">
+        <attr name="bg" format="reference|string" />
+        <attr name="text" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="SpannedGridLayoutManager">
+        <attr name="android:orientation" />
+        <attr name="spanCount" />
+        <attr name="aspectRatio" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomCalendarView">
+        <attr name="nowmonth" format="integer|reference" />
+        <attr name="nowyear" format="integer|reference" />
+        <attr name="nowdate" format="integer|reference" />
+    </declare-styleable>
+</resources>

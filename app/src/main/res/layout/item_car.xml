@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemCarBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.CarBrandListData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OnwerViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:orientation="vertical">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:background="@{viewModel.carCursorPoint == posi ? @drawable/checkbox_drive_true_white_8 : @drawable/coner_round_post_bg}"
+            android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/iv_car"
+            android:layout_width="@dimen/dimen_36"
+            android:layout_height="@dimen/dimen_36"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_12"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_woman_12x12"
+            android:textSize="@dimen/_9sdp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_28"
+            android:text="@{dataset.carb_name}"
+            android:fontFamily="@font/inter_regular"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp" />
+
+    </LinearLayout>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/series_recyclerview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:visibility="@{viewModel.carCursorPoint == posi ? View.VISIBLE : View.GONE}"-->
+
+<!--             />-->
+    </LinearLayout>
+
+
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

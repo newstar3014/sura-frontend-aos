@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemProfileSuggestion2Binding">
+        <import type="android.view.View" />
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ProfileSuggestionData" />
+        <variable
+            name="checkset"
+            type="Boolean" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OwnerAndPassengerViewModel">
+
+
+        </variable>
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:setsizemain="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? true:false):false}"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_alignParentTop="true"
+            android:visibility="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? View.GONE:View.VISIBLE):View.GONE}"/>
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="@dimen/_300sdp"
+            style="@style/MyCardViewCenter"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            app:cardElevation="0dp"
+            android:onClick="@{()->viewModel.eventCenter(true)}"
+            app:strokeColor="@color/main_vip_item_stroke"
+            app:strokeWidth="@dimen/_1sdp">
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:adjustViewBounds="true"
+                app:OnwerAndPassengerImage="@{viewModel.profilesuggest}"
+                app:OnwerAndPassengerImageIndex="@{viewModel.index}"
+                app:OnwerAndPassengerImageList= "@{viewModel.Select_index}"
+                android:layout_gravity="center_vertical"
+                android:scaleType = "fitXY"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

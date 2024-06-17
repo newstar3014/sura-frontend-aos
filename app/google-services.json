@@ -1,0 +1,108 @@
+{
+  "project_info": {
+    "project_number": "937563253318",
+    "project_id": "supercarnative",
+    "storage_bucket": "supercarnative.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937563253318:android:101cd9d8d5295057fcb847",
+        "android_client_info": {
+          "package_name": "com.supercarlounge.supercar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937563253318-oil9gfrdlbi9m3lan51nhvevkvgh5ai7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supercarlounge.supercar",
+            "certificate_hash": "6be6c24c57590114fcc98ab4d342a03bfcca243f"
+          }
+        },
+        {
+          "client_id": "937563253318-1deu4t81sfe4dqlnovm6ic4fmdc8l923.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA23RABfytMdzF1ksNInxemtuYEm1UpvZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937563253318-1deu4t81sfe4dqlnovm6ic4fmdc8l923.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "937563253318-d1a348o3lspig48v3fneo4sn9ie6f10a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.supercarlounge.supercarnative",
+                "app_store_id": "1659611845"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937563253318:android:2c91ff3eb1e2e162fcb847",
+        "android_client_info": {
+          "package_name": "com.supercarlounge.supercarnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937563253318-fkp7opgktf8h7529kbn5m493qtl5hoc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supercarlounge.supercarnative",
+            "certificate_hash": "7d9e61c1704fa4958d8ed53d48c811084aa0e323"
+          }
+        },
+        {
+          "client_id": "937563253318-rgmsolsfh9ivn6pcaloetavb8til6p32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supercarlounge.supercarnative",
+            "certificate_hash": "1e7f95e33a5b8b9d443d6a34751fbd476f311d11"
+          }
+        },
+        {
+          "client_id": "937563253318-1deu4t81sfe4dqlnovm6ic4fmdc8l923.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA23RABfytMdzF1ksNInxemtuYEm1UpvZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937563253318-1deu4t81sfe4dqlnovm6ic4fmdc8l923.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "937563253318-d1a348o3lspig48v3fneo4sn9ie6f10a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.supercarlounge.supercarnative",
+                "app_store_id": "1659611845"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

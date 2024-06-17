@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemDriveWritingProfileSuggestionBinding">
+        <import type="android.view.View" />
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ProfileSuggestionData" />
+        <variable
+            name="checkset"
+            type="Boolean" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.NewDriveWritingViewModel">
+
+
+        </variable>
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:setsizemain="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? true:false):false}"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_alignParentTop="true"
+            android:visibility="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? View.GONE:View.VISIBLE):View.GONE}"/>
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/ll_image"
+            app:setsize="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? true:false):false}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_circle"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_4sdp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true" />
+<!--                app:round_photo="@{dataset.u_image}"-->
+
+<!--                android:alpha="@{checkset ? 255:30}"-->
+
+
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="@dimen/dimen_25"
+            android:layout_height="@dimen/dimen_25"
+            android:scaleType="centerInside"
+            android:padding="@dimen/_3sdp"
+            android:layout_alignRight="@+id/ll_image"
+            android:layout_marginRight="@dimen/dimen_7"
+            android:background="@drawable/black_circle"
+            android:visibility="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? View.VISIBLE:View.GONE):View.GONE}"
+            android:src="@drawable/icon_plus_cooper"/>
+    </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

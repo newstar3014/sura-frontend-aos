@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data class="ItemMySubInfo">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.MySubInfoData" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarBoardWritingViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:adjustViewBounds="true"
+                    app:photo2="@{dataset.msi_img}" />
+
+                <ImageView
+                    android:id="@+id/iv_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_cell"
+                    android:visibility="@{dataset.msi_img.isEmpty()? View.GONE : View.VISIBLE}" />
+            </RelativeLayout>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_msi_contents"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginHorizontal="@dimen/_24sdp"
+                android:background="@drawable/coner_round_edit_strok_bg"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:padding="@dimen/dimen_10">
+<!--                android:background="@{dataset.select == true ? @drawable/coner_round_edit_strok_s_bg :@drawable/coner_round_edit_strok_bg}"-->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textinput_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/trn"
+                    android:gravity="left|top"
+                    android:padding="2dp"
+                    app:endIconMode="none"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_msi_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/trn"
+                        android:gravity="left|top"
+                        android:hint="추가하신 사진의 설명을 입력해 주세요"
+                        android:padding="2dp"
+                        android:singleLine="true"
+                        android:text="@={dataset.msi_contents}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white_50"
+                        android:textSize="@dimen/_10sdp"
+                        tools:ignore="Deprecated" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                0211 사진&이미지-->
+                <!--                android:scaleType="centerCrop"-->
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

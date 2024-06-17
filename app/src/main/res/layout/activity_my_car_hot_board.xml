@@ -1,0 +1,211 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarBoardViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <!--            상단 뷰페이저-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.55"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:text="@{viewModel.titleText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--                        android:background="@drawable/backgound"-->
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            tools:ignore="ScrollViewCount">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:photoin="@{viewModel.myCarHotData.mce_popup}" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:text="인기글 선정 기준"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:lineSpacingExtra ="@dimen/_5sdp"
+                    android:text="@{viewModel.myCarHotData.mce_criteria}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:text="기간"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:lineSpacingExtra ="@dimen/_5sdp"
+                    android:text="@{viewModel.myCarHotData.mce_time}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:text="선정 혜택"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:lineSpacingExtra ="@dimen/_5sdp"
+                    android:text="@{viewModel.myCarHotData.mce_benefit}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:text="이용안내"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:lineSpacingExtra ="@dimen/_5sdp"
+                    android:text="@{viewModel.myCarHotData.mce_guidelines}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:text="문의"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="left"
+                    android:lineSpacingExtra ="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:text="@{viewModel.myCarHotData.mce_inquiry}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+                <!--                    app:myCarBoard="@{viewModel.myCarBoardList}"-->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

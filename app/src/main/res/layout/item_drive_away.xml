@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemDriveAwayBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.DriveAwayData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <RelativeLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_140sdp"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/dimen_8"
+                app:cardElevation="0dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                app:strokeColor="@android:color/transparent"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    app:layout_constraintDimensionRatio="10:15"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_sample1" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintDimensionRatio="10:15"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/gradient_drive_bg"
+                    />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/view_bottom"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:lines="1"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginHorizontal="@dimen/dimen_8"
+                android:text="@{dataset.GetTitle()}"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/dimen_7_5"
+                android:textSize="@dimen/_7sdp" />
+
+            <View
+                android:id="@+id/view_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/ll_sub"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:layout_marginHorizontal="@dimen/dimen_16"
+                android:background="@color/main_color" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="@dimen/dimen_10"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerInside"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:src="@{dataset.u_gender.equals(`MALE`) ? @drawable/ic_man_12x12 :@drawable/ic_woman_12x12}" />
+                <TextView
+                    android:id="@+id/tv_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{dataset.getBoardType()}"
+                    android:textColor="@color/main_color"
+                    android:fontFamily="@font/optimus_princeps_pemi_bold"
+                    android:textSize="@dimen/_7sdp"
+
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

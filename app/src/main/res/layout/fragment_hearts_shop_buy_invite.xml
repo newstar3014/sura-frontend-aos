@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="viewModel" type="com.supercarlounge.supercar.viewmodel.HeartsShopViewModel"/>
+    </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        >
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_500sdp"
+            android:background="@drawable/ic_heart_2_low"
+
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_drivepass_30"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_84sdp"
+                android:layout_above="@+id/ll_kakao"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/ic_back_ticket"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="친구야 하트 받고 같이 드라이브 가자"
+                    android:textColor="@color/text_guide"
+                    android:textSize="@dimen/_8sdp" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_frame_2404"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="30"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_30sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="하트"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_23sdp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:id="@+id/ll_kakao"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_above="@+id/my_code"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:background="@drawable/coner_round_hearts_shop_yellow2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:src="@drawable/ic_kakao" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:text="카톡으로 초대 코드 공유하기"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/my_code"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:background="@drawable/coner_round_hearts_shop_gray_80"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="내 초대 코드 복사하기"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+
+        </RelativeLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="top">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textview_inter"
+                    android:gravity="left"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_gravity="left"
+                    android:text="⦁"
+                    android:layout_marginRight="@dimen/dimen_3"
+                    android:textColor="@color/bottom_sheet_non"
+                    android:textSize="@dimen/_9sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textview_inter"
+                    android:gravity="left"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_gravity="left"
+                    android:text="초대받은 친구가 회원가입 시 초대 코드 입력 후 가입 승인이 완료되면 하트가 지급됩니다. (가입 신청 후에는 초대코드를 입력 또는 수정 하실 수 없습니다.)"
+                    android:textColor="@color/bottom_sheet_non"
+                    android:textSize="@dimen/_9sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="최초 가입자에게만 지급하며 재가입 회원은 보상에서 제외됩니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="카카오톡을 통해 추천 코드 또는 이벤트 내용을 전송하는 경우, 반드시 받는 분의 명시적인 사전 동의를 받으셔야 합니다 (사전 동의 없이 받는 분의 의사에 반하여 추천 코드 또는 이벤트 내용을 전송하는 경우 정보통신망 이용 촉진 및 정보보호 등에 관한 법률 위반으로 과태료가 부과될 수 있으며, 추천에 따른 혜택이 취소될 수 있습니다)"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="초대받은 친구가 슈라 회원가입 이력이 없는 경우에 한 해 행사 대상이 됩니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="초대받은 친구가 추천 코드를 등록하여 회원가입을 완료한 경우에 한 해 혜택이 제공됩니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="가입 시 추천 코드를 등록하지 못했을 경우, 이벤트 현황 페이지에서 24시간 안에 추천 코드를 입력하면 하트가 지급됩니다. 가입 후 24시간이 지났을 경우 입력이 불가합니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="비정상적인 방법으로 이벤트에 참여한 경우, 적립된 포인트는 반환되며 추후 이벤트 참여가 제한될 수 있습니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="⦁"
+                android:layout_marginRight="@dimen/dimen_3"
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textview_inter"
+                android:gravity="left"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="left"
+                android:text="본 이벤트는 당사 사정에 따라 사전 고지 없이 변경 또는 조기 종료될 수 있습니다."
+                android:textColor="@color/bottom_sheet_non"
+                android:textSize="@dimen/_9sdp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ItemLocationTotalViewBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.LocationSpotData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationFragmentViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+        <variable
+            name="num"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@{String.valueOf(num)}"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@{dataset.spot_title}"
+            android:lines="1"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/_11sdp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

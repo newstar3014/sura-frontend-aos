@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemRegionBinding">
+
+        <variable
+            name="dataset"
+            type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.BottomSheetRegionDailogViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{viewModel.regionSelectIndex == posi ? @color/white : @color/gray90}"
+        android:padding="@dimen/_10sdp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@{dataset}"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@{viewModel.regionSelectIndex == posi ? @color/black : @color/black_70}"
+            android:textSize="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+
+
+</layout>

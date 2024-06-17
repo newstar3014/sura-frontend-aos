@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <data>
+        <import type="com.supercarlounge.supercar.R"/>
+        <import type="androidx.core.content.ContextCompat"/>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.NewDriveWritingViewModel" />
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+
+                    android:text="게시글 등록 완료!"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14"
+                    android:visibility="invisible" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/coner_round_drive_vip_box_bg"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.setvipmode()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_10"
+                    android:visibility="@{(viewModel.viptype != 1 &amp;&amp; viewModel.viptype != 3) ? View.VISIBLE : View.GONE}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_15"
+
+                        android:scaleType="centerInside"
+                        android:src="@drawable/vip_01_24x24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5_5"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:text="VIP DRIVE"
+                        android:textColor="@color/round_color1"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="0dip"
+                        android:layout_height="0dip"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5_5"
+                        android:clickable="true"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:onClick="@{()->viewModel.setvipmode()}"
+                        android:text="신청하기"
+                        android:textColor="@color/round_color1"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_15"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_ar_left_16x16" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="현재 VIP DRIVE 등록이 가능합니다!\n내 게시글이 드라이브 게시판 상단에 고정 노출되어\n매칭 성사의 가능성을 높여줍니다."
+                    android:textColor="@color/bottom_sheet_non"
+                    android:textSize="@dimen/_10sdp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_profilesugesst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_profilesugesst"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal"
+                        app:drivewritingprofilesugesst="@{viewModel.profilesuggest}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_25"
+                        android:layout_below="@id/rv_profilesugesst"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.profilesuggest.size() != 0 ? (viewModel.selectprodata!=null ? View.VISIBLE:View.GONE):View.GONE}">
+
+                        <ImageView
+                            android:id="@+id/iv_carb"
+                            android:layout_width="@dimen/dimen_25"
+                            android:layout_height="@dimen/dimen_25"
+                            android:visibility="@{viewModel.selectprodata.carb_image !=null ? View.VISIBLE:View.GONE}"
+                            app:logo="@{viewModel.selectprodata.carb_image}" />
+
+                        <TextView
+                            style="@style/textview_english_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/optimus_princeps_pemi_bold"
+                            android:gravity="center"
+                            android:text="@{viewModel.selectprodata.carb_name !=null ?viewModel.selectprodata.carb_name : `PASSENGER`}"
+                            android:textColor="@color/main_color"
+                            android:textSize="@dimen/_9sdp" />
+
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="드라이브를 기다리고있는 회원에게 먼저 드라이브 신청을\n해보세요! 매칭이 완료 되면 내 휴대폰 번호가 아닌\n1811, 1877로 시작하는 안심번호가 생성됩니다!"
+                    android:textColor="@color/bottom_sheet_non"
+                    android:textSize="@dimen/_10sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        </RelativeLayout>
+
+
+
+
+</layout>

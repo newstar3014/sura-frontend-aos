@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<!--    app:behavior_hideable="true"-->
+<!--    app:behavior_peekHeight="@dimen/dimen_100"-->
+<!--    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"-->
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LoginViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet_round"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_19sdp"
+
+       >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:fontFamily="@font/inter_bold"
+            android:text="약관 동의"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            />
+          
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:gravity="center_vertical"
+            android:onClick="@{()->viewModel.onclickAll()}"
+            android:layout_marginStart="@dimen/_17sdp">
+
+            <CheckBox
+                android:id="@+id/cb_heart2"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_bottom_sheet"
+                android:button="@null"
+                android:checked="@{viewModel.allchecked}"
+                android:gravity="center"
+                android:enabled="false"
+                android:focusable="false"
+                android:clickable="false"
+
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="전체동의"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+
+
+                />
+<!--            android:onCheckedChanged="@{(view, checked) -> viewModel.setCheckAll(checked)}"-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_27dp"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_17sdp">
+
+            <CheckBox
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_2"
+                android:button="@null"
+                android:checked="@{viewModel.checked1}"
+                android:gravity="center"
+                android:onCheckedChanged="@{(view, checked) -> viewModel.setCheck1(checked)}"
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tv_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_regular"
+                android:text="슈퍼카라운지 이용약관 (필수)"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@{viewModel.checked1 == true ? ContextCompat.getColor(context, R.color.black_check_100) : ContextCompat.getColor(context, R.color.black_check_70)}"
+
+                />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_terms"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_ar_right_24px_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginStart="@dimen/dimen_5_5"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_17sdp">
+
+            <CheckBox
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_2"
+                android:button="@null"
+                android:checked="@{viewModel.checked2}"
+                android:gravity="center"
+                android:onCheckedChanged="@{(view, checked) -> viewModel.setCheck2(checked)}"
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tv_privacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_regular"
+                android:text="개인정보 수집 및 이용 동의 (필수)"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@{viewModel.checked2 == true ? ContextCompat.getColor(context, R.color.black_check_100) : ContextCompat.getColor(context, R.color.black_check_70)}"
+
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_privacy"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_ar_right_24px_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginStart="@dimen/dimen_5_5"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_17sdp">
+
+            <CheckBox
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_2"
+                android:button="@null"
+                android:checked="@{viewModel.checked3}"
+                android:gravity="center"
+                android:onCheckedChanged="@{(view, checked) -> viewModel.setCheck3(checked)}"
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tv_location_consent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_regular"
+                android:text="위치정보 이용 약관 동의 (선택)"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@{viewModel.checked3 == true ? ContextCompat.getColor(context, R.color.black_check_100) : ContextCompat.getColor(context, R.color.black_check_70)}"
+
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_location_consent"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_ar_right_24px_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginStart="@dimen/dimen_5_5"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/_17sdp">
+
+            <CheckBox
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_2"
+                android:button="@null"
+                android:checked="@{viewModel.checked4}"
+                android:gravity="center"
+                android:onCheckedChanged="@{(view, checked) -> viewModel.setCheck4(checked)}"
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+           >
+
+            <TextView
+                android:id="@+id/tv_secession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_regular"
+                android:text="장기 미접속 시에도 계정 유지 (선택)"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@{viewModel.checked4 == true ? ContextCompat.getColor(context, R.color.black_check_100) : ContextCompat.getColor(context, R.color.black_check_70)}"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_secession_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/inter_regular"
+                android:text="미동의 시 1년 미접속 회원 탈퇴 전환"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/black_check_50"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_17sdp">
+
+            <CheckBox
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:background="@drawable/custom_checkbox_2"
+                android:button="@null"
+                android:checked="@{viewModel.checked5}"
+                android:gravity="center"
+                android:onCheckedChanged="@{(view, checked) -> viewModel.setCheck5(checked)}"
+                android:textColor="@color/check_text_non"
+                android:textSize="@dimen/_11sdp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tv_marketing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="마케팅 활용 동의 및 광고 수신 동의 (선택)"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@{viewModel.checked5 == true ? ContextCompat.getColor(context, R.color.black_check_100) : ContextCompat.getColor(context, R.color.black_check_70)}"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_marketing_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="행사 참여, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다."
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/black_check_50"
+
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_marketing"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_ar_right_24px_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginStart="@dimen/dimen_5_5"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_bottom_ok"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginHorizontal="@dimen/_17sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/inter_bold"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/white"
+            android:background="@{viewModel.checked1 == true &amp; viewModel.checked2 == true  ? @drawable/coner_round_bottom_sheet_s :@drawable/coner_round_bottom_sheet}"
+            android:text="다음단계"
+            android:gravity="center"
+            />
+<!--            android:background="@{viewModel.checkedPass == true ? ContextCompat.getDrawable(context, R.drawable.coner_round_bottom_sheet_s) : ContextCompat.getColor(context, R.drawable.coner_round_bottom_sheet)}"-->
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemMyCarBoardGridBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.MyCarBoardData" />
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarBoardViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <LinearLayout
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:visibility="@{dataset.mmi_seq == 0 ? View.INVISIBLE:View.VISIBLE}"
+            android:orientation="vertical">
+<!--            android:adjustViewBounds="true"-->
+
+
+            <ImageView
+                android:id="@+id/item_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:mainPhotoGrid="@{dataset.mmi_img}" />
+
+
+        </LinearLayout>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

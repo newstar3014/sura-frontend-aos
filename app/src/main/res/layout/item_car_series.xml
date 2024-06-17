@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemCarSeriesBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.CarModelListData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OnwerViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen_6"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30"
+            android:background="@{viewModel.carSeriesCursorPoint == posi ? @drawable/checkbox_drive_true_white_8 : @drawable/coner_round_post_bg}"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen_28"
+                android:fontFamily="@font/inter_regular"
+                android:text="@{dataset.carm_name}"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_series_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="@{viewModel.carSeriesCursorPoint == posi ? View.VISIBLE : View.GONE}"
+
+            />
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

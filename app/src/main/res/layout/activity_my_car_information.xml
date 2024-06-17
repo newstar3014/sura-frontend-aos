@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="com.supercarlounge.supercar.enumset.ProfileStatus" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarInformationModel" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PostNoticeCheckActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/ll_bottom_bar"
+                    android:layout_below="@+id/title_bar"
+                    android:layout_marginVertical="@dimen/_50sdp"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_car_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_6sdp"
+
+                        android:orientation="horizontal"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_4sdp"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerInside"
+                            android:src="@{viewModel.position == 0 ? @drawable/round_select : @drawable/round_non }"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_4sdp"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:scaleType="centerInside"
+                            android:src="@{viewModel.position == 1 ? @drawable/round_select : @drawable/round_non }"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_4sdp"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerInside"
+                            android:src="@{viewModel.position == 2 ? @drawable/round_select : @drawable/round_non }"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_13sdp"
+                        android:background="@color/home_bottom_view" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:fontFamily="@font/inter_regular"
+                        android:gravity="center"
+                        android:text="브랜드"
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car_bland"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tv_bland"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:text="@{viewModel.position == 0 ? viewModel.carDataList[1].carb_name :viewModel.position == 1 ? viewModel.carDataList[2].carb_name  :viewModel.position == 2 ? viewModel.carDataList[3].carb_name:viewModel.tvCarBrandNull }"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                        <!--                  -->
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/iv_car_Select"
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ar_right_cloudy_24x24" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+
+                        android:background="@color/home_bottom_view" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:fontFamily="@font/inter_regular"
+                        android:gravity="center"
+                        android:text="모델명"
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tv_model"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                        <!--                        android:text="@{viewModel.position == 0 ? viewModel.carDataList[1].carm_name :viewModel.position == 1 ? viewModel.carDataList[2].carm_name  :viewModel.position == 2 ? viewModel.carDataList[3].carm_name:viewModel.tvCarModelNull }"-->
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ar_right_cloudy_24x24"
+                            android:visibility="invisible" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+
+                        android:background="@color/home_bottom_view" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car_deep_model1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:src="@drawable/question_24x24"
+                            android:text="상세 모델명"
+                            android:textColor="@color/white_80"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+
+                        android:id="@+id/ll_car_deep_model2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tv_series"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:text="@{viewModel.position == 0 ? viewModel.carDataList[1].csm_name :viewModel.position == 1 ? viewModel.carDataList[2].csm_name  :viewModel.position == 2 ? viewModel.carDataList[3].csm_name:viewModel.tvCarDeepModelNull }"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                        <!--                   -->
+                        <View
+
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ar_right_cloudy_24x24"
+                            android:visibility="invisible" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:id="@+id/view_car_deep_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:background="@color/home_bottom_view" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_insurance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:gravity="center"
+                                android:text="종합 보험 가입 증서"
+                                android:textColor="@color/white_80"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.1" />
+
+                            <TextView
+                                android:id="@+id/tv_insurance_image_check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:fontFamily="@font/inter_regular"
+
+
+                                android:text="@{viewModel.tvInsuranceImageCheck}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />
+                            <!--                      -->
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_insurance_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimen_60"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="bottom|center_horizontal"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/tv_insur_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/coner_round_black_272727"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:paddingHorizontal="@dimen/dimen_20"
+                                android:paddingVertical="@dimen/dimen_3"
+                                android:singleLine="true"
+                                android:text="@{viewModel.tvInsuranceEdit}"
+                                android:textColor="@color/bottom_sheet_non"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:id="@+id/insur_bottom_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+
+                        android:background="@color/home_bottom_view" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:gravity="center"
+                                android:text="차량 사진"
+                                android:textColor="@color/white_80"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.1" />
+
+                            <TextView
+                                android:id="@+id/tv_car_image_check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:fontFamily="@font/inter_regular"
+                                android:gravity="center"
+                                android:text="@{viewModel.tvCarImageCheck}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimen_60"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="bottom|right"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_car_image"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/iv_car_image"
+                                    android:layout_width="@dimen/dimen_60"
+                                    android:layout_height="@dimen/dimen_60"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/imgplus_56px" />
+
+                                <ImageView
+                                    android:id="@+id/iv_car_bg"
+                                    android:layout_width="@dimen/dimen_60"
+                                    android:layout_height="@dimen/dimen_60"
+                                    android:background="@color/black_check_80"
+                                    android:scaleType="centerInside" />
+                                android:visibility="@{viewModel.carImage == null ? View.GONE
+                                :View.VISIBLE}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/inter_medium"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.car_yn_text}"
+                                    android:textColor="@color/bottom_sheet_non"
+                                    android:textSize="@dimen/_10sdp" />
+                                android:visibility="@{viewModel.carImage == null ? View.GONE
+                                :View.VISIBLE}" />
+
+                                <!--                            android:text="@{viewModel.tvCarEdit}"-->
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/tv_car_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/coner_round_black_272727"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="bottom"
+                                android:paddingHorizontal="@dimen/dimen_20"
+                                android:paddingVertical="@dimen/dimen_3"
+                                android:singleLine="true"
+                                android:text="@{viewModel.tvCarEdit}"
+                                android:textColor="@color/bottom_sheet_non"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:id="@+id/car_bottom_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+
+                        android:background="@color/home_bottom_view" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_maincar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_18sdp"
+
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/cb_maincar"
+                            android:layout_width="@dimen/dimen_22"
+                            android:layout_height="@dimen/dimen_22"
+                            android:background="@drawable/custom_checkbox_bottom_sheet"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:textColor="@color/check_text_non"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_7sdp"
+                            android:gravity="center"
+                            android:text="대표차량 등록"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:background="@color/black">
+
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/optimus_princeps_pemi_bold"
+
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                android:text="@{viewModel.titleText}"-->
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:src="@drawable/ic_ar_left_24px"
+                    android:paddingVertical="@dimen/dimen_5"
+                    android:paddingHorizontal="@dimen/_7sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ll_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/coner_round_edit_box"
+                    android:visibility="@{viewModel.editBoolean == true ? View.INVISIBLE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <!--                    android:visibility="@{viewModel.btn_type == ProfileStatus.DEFAULT ? View.VISIBLE : View.GONE}"-->
+
+
+                    <TextView
+                        android:id="@+id/tv_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginVertical="@dimen/dimen_5"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="수정하기"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+                    <!--                        android:visibility="@{viewModel.my_seq.equals(viewModel.user_info.u_seq) ? View.VISIBLE : View.GONE}"-->
+
+                    />
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_52"
+                android:layout_alignParentBottom="true"
+                android:background="@color/join_bottom_bar"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+                <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bottomText}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <!--    타이틀바-->
+
+
+    <!--        하단바-->
+
+
+</layout>

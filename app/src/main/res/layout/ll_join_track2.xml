@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.JoinViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+
+                    android:text="본인의 매력을\n선택해 주세요."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/select_outside"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_36sdp"
+                            android:background="@{viewModel.outside == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                            android:button="@null"
+                            android:checked="@{viewModel.outside}"
+                            android:fontFamily="@font/inter_bold"
+                            android:gravity="center"
+                            android:onCheckedChanged="@{(view, checked) -> viewModel.setOutside(checked)}"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="외면"
+                            android:textColor="@{viewModel.outside == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.outside == true ? View.VISIBLE : View.GONE}">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_0"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.outsideCheckedArray[0] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(0,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[0]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[0] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.outsideCheckedArray[2] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(2,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[2]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[2] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[4] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(4,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[4]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[4] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.outsideCheckedArray[6] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(6,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[6]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[6] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[8] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(8,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[8]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[8] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_10"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[10] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(10,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[10]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[10] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[12] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(12,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[12]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[12] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_14"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[14] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(14,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[14]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[14] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_16"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[16] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(16,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[16]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[16] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_18"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[18] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(18,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[18]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[18] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_inside1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.inside == true ? View.VISIBLE : View.GONE}">
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_0"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.insideCheckedArray[0] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(0,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[0]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[0] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[2] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(2,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[2]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[2] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[4] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(4,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[4]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[4] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[6] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(6,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[6]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[6] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[8] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(8,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[8]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[8] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_10"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[10] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(10,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[10]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[10] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[12] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(12,true)}"
+
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[12]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[12] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_14"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[14] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(14,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[14]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[14] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_16"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[16] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(16,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[16]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[16] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_18"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[18] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(18,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[18]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[18] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_20"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[20] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(20,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[20]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[20] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_22"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[22] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+
+                                android:onClick="@{()->viewModel.setInsideSelect(22,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[22]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[22] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_24"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[24] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(24,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[24]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[24] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_26"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[26] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(26,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[26]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[26] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/select_inside"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_36sdp"
+                            android:background="@{viewModel.inside == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                            android:button="@null"
+                            android:checked="@{viewModel.inside}"
+                            android:fontFamily="@font/inter_bold"
+                            android:gravity="center"
+                            android:onCheckedChanged="@{(view, checked) -> viewModel.setInside(checked)}"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:text="내면"
+                            android:textColor="@{viewModel.inside == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.outside == true ? View.VISIBLE : View.GONE}">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.outsideCheckedArray[1] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+
+                                android:onClick="@{()->viewModel.setOutsideSelect(1,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[1]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[1] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[3] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(3,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[3]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[3] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[5] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(5,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[5]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[5] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[7] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(7,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[7]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[7] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[9] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(9,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[9]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[9] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_11"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[11] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(11,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[11]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[11] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_13"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[13] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(13,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[13]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[13] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_15"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[15] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(15,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[15]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[15] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_17"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[17] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(17,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[17]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[17] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_19"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.outsideCheckedArray[19] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setOutsideSelect(19,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.outSideArray[19]}"
+                                android:textColor="@{viewModel.outsideCheckedArray[19] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_inside2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.inside == true ? View.VISIBLE : View.GONE}">
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+
+                                android:background="@{viewModel.insideCheckedArray[1] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(1,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[1]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[1] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[3] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(3,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[3]}"
+                                android:textColor="@{viewModel.insideCheckedArray[3] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[5] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(5,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[5]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[5] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[7] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(7,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[7]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[7] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[9] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(9,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[9]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[9] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_11"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[11] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(11,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[11]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[11] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_13"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[13] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(13,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[13]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[13] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_15"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[15] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+
+                                android:gravity="center"
+                                android:onCheckedChanged="@{(view, checked) -> viewModel.setInsideSelect(15,checked)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[15]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[15] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_17"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[17] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(17,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[17]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[17] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_19"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[19] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(19,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[19]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[19] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <!--                                android:background="@{viewModel.insideCheckedArray[21] == ture ? @drawable/checkbox_ture : @drawable/checkbox_false}"-->
+                            <CheckBox
+                                android:id="@+id/check_box_inside_21"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[21] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(21,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[21]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[21] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_23"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[23] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(23,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[23]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[23] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_25"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[25] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(25,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[25]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[25] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_inside_27"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.insideCheckedArray[27] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setInsideSelect(27,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.inSideArray[27]}"
+
+                                android:textColor="@{viewModel.insideCheckedArray[27] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemProfileSuggestion2Binding">
+        <import type="android.view.View" />
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ProfileSuggestionData" />
+        <variable
+            name="checkset"
+            type="Boolean" />
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OwnerAndPassengerViewModel">
+
+
+        </variable>
+        <variable
+            name="posi"
+            type="Integer" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_280sdp">
+
+        <RelativeLayout
+            android:id="@+id/ll_image"
+            app:setsize2="@{viewModel.profilesuggest.size != 0 ?(viewModel.selectproindex==posi%viewModel.profilesuggest.size ? true:false):false}"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_280sdp"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_280sdp"
+            style="@style/MyCardViewCenter"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/main_vip_item_stroke"
+            app:strokeWidth="@dimen/_1sdp">
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_vertical"
+                android:scaleType = "fitXY"
+                />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/iv_blurview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_280sdp"
+                app:blurOverlayColor="@color/white_10"/>
+<!--            app:OnwerAndPassengerImage="@{viewModel.profilesuggest}"-->
+<!--            app:OnwerAndPassengerImageIndex="@{viewModel.index}"-->
+<!--            app:OnwerAndPassengerImageList= "@{viewModel.Select_index}"-->
+        </com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:visibility="@{viewModel.selectproindex != (posi%viewModel.profilesuggest.size)   &amp; viewModel.scrolling == false  ? View.VISIBLE : View.INVISIBLE }"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/ar_left_cloudy_24x24" />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="@{viewModel.selectproindex != (posi%viewModel.profilesuggest.size)  &amp; viewModel.scrolling == false   ?  View.VISIBLE : View.INVISIBLE }"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/ar_right_cloudy_24x24" />
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

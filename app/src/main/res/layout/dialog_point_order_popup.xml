@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogPostPopUpViewModel">
+
+
+        </variable>
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:background="@color/round_edt_box"
+        android:layout_height="match_parent">
+
+
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_all_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:id="@+id/tv_new_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="전체"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_save_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tv_views_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="적립"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_deduct_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:id="@+id/tv_comment_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="차감"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <!--            android:text="@={viewModel.tv_ok}"-->
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </FrameLayout>
+
+</layout>

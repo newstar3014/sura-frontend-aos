@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemViewListBinding">
+        <import type="android.view.View" />
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ViewListData" />
+
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_top_drive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:gravity="center_vertical"
+                android:layout_marginVertical="@dimen/_5sdp"
+                tools:ignore="MissingConstraints">
+
+              <RelativeLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/round_profile_back"
+                  android:visibility='@{dataset.pc_ok.equals("N") ? View.VISIBLE:View.GONE}'
+                  >
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                     />
+              </RelativeLayout>
+                <ImageView
+                    android:id="@+id/item_iv2"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:visibility='@{dataset.pc_ok.equals("Y") ? View.VISIBLE:View.GONE}'
+                    />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/ll_sub"
+                    android:text="@{dataset.rn_nickname}"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

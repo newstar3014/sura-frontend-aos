@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.Payment40ViewModel">
+
+        </variable>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/popbg_1000x1000"
+                android:orientation="vertical"
+
+                android:padding="@dimen/dimen_20dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/warning_40x40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="회원님께서는 대납 기능을\n사용한 게시글만 작성 가능합니다."
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ok"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="확인"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+                    <!--            android:text="@={viewModel.tv_ok}"-->
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</layout>

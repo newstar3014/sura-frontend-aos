@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+
+        <import type="androidx.core.content.ContextCompat" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.IncomeInformationViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.MainActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="@color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/inter_bold"
+                android:src="@drawable/ic_cell"
+                android:text="소득 정보 등록"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        edit&text box-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_44"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="패신저 등록을\n도와드릴게요!"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_21" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:fontFamily="@font/inter_regular"
+                android:text="남성 패신저의 경우 연간 소득 5,000만 원 이상\n인증 후 회원 가입이 승인됩니다. 소득금액증명원 또는\n원천징수 영수증, 연봉계약서를 업로드해 주세요."
+                android:textColor="@color/white_70"
+                android:textSize="@dimen/dimen_14" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_income"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_119"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_47"
+                android:background="@drawable/coner_round_start_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_40"
+
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+
+
+                    >
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:gravity="center"
+                        android:text="Income amount certification source"
+                        android:textColor="@color/main_color_70"
+                        android:textSize="@dimen/tv_10" />
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:text="소득 금액증명원"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="민감정보를 마스킹 후\n업로드해 주세요."
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_9sdp"
+
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="@dimen/dimen_60"
+                    android:layout_height="@dimen/dimen_60"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/income_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/imgplus_56px" />
+
+                        <ImageView
+                            android:id="@+id/income_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/income_image"
+                            android:layout_alignTop="@+id/income_image"
+                            android:layout_alignEnd="@+id/income_image"
+                            android:layout_alignBottom="@+id/income_image"
+                            android:background="@color/black_check_80"
+                            android:scaleType="centerInside"
+                            android:visibility="@{viewModel.incomeImage == null ? View.GONE :View.VISIBLE}" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/income_image"
+                            android:layout_alignTop="@+id/income_image"
+                            android:layout_alignEnd="@+id/income_image"
+                            android:layout_alignBottom="@+id/income_image"
+                            android:fontFamily="@font/inter_medium"
+                            android:gravity="center"
+                            android:text="@{viewModel.incmeCheckReturn}"
+                            android:textColor="@color/bottom_sheet_non"
+                            android:textSize="@dimen/_9sdp"
+                            android:visibility="@{viewModel.incomeImage == null ? View.GONE :View.VISIBLE}" />
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <TextView
+                android:id="@+id/tv_explanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_40"
+                android:fontFamily="@font/inter_regular"
+                android:text="성함과 소득정보를 제외한 민감정보를 마스킹 하지 않으면\n가입이 반려되실 수 있습니다.\n\n가입 시 제출하신 자료는 가입 즉시 보관되지 않고\n완전히 삭제 됩니다.\n\n도용한 서류 또는 서류를 위조할 경우 사문서 위조 등 형사처벌\n받을 수 있습니다."
+                android:textColor="@color/white_60"
+                android:textSize="@dimen/_9sdp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.6"
+            android:background="@color/white_8"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="@{viewModel.tv_bottom}"
+            android:textColor="@{viewModel.stateBottomText == true ? ContextCompat.getColor(context, R.color.white) : ContextCompat.getColor(context, R.color.bottom_bar_text)}"
+            android:textSize="@dimen/_11sdp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

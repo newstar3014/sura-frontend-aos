@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.ConciergeDetailViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+     >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ui.activity.ConciergeDetailActivity">
+
+            <!--    타이틀바-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:background="@color/black">
+
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/optimus_princeps_pemi_bold"
+                    android:text="@{viewModel.data.co_company}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dimen_10"
+                    android:paddingVertical="@dimen/dimen_5"
+                    android:src="@drawable/ic_ar_left_24px"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:background="@drawable/background_bg"
+                android:overScrollMode="never"
+                tools:ignore="ScrollViewCount">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="308dp"
+                        android:scaleType="centerInside"
+                        app:photoin="@{viewModel.data.co_image}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_24"
+                        android:text="혜택"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_add_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:orientation="vertical">
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:text="@{viewModel.data.Getnormal()}"
+                        android:textColor="@color/white_90"
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="@{viewModel.data.isView == 0 ? View.VISIBLE :View.GONE}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:text="@{viewModel.data.GetVip()}"
+                        android:textColor="@color/white_90"
+
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="@{viewModel.data.isView == 0 ? View.VISIBLE :View.GONE}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_32"
+                        android:text="기간"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:text="@{viewModel.data.Getdate()}"
+                        android:textColor="@color/white_90"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_32"
+                        android:text="이용방법"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="@{viewModel.data.co_info.empty ? View.GONE : View.VISIBLE}" />
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:orientation="vertical">
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:id="@+id/tv_inquiryText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_32"
+                        android:text="문의"
+                        android:visibility="@{(viewModel.data.co_email.isEmpty() == false &amp;&amp; viewModel.data.co_email != null) ? View.VISIBLE :View.GONE}"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_inquiryText"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:visibility="@{(viewModel.data.co_email.isEmpty() == false &amp;&amp; viewModel.data.co_email != null) ? View.VISIBLE :View.GONE}"
+                        android:text="@{viewModel.data.co_email}"
+                        android:textColor="@color/white_90"
+                        android:textSize="@dimen/_9sdp" />
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_32">
+
+
+                    </RelativeLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_52"
+                android:layout_marginTop="@dimen/dimen_9"
+                android:background="@color/white_16"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="@{viewModel.data.co_link.isEmpty() ? View.GONE:View.VISIBLE}"
+                android:onClick="@{()->viewModel.setopen()}"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+                <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bottom_text}"
+                    android:textColor="@color/white" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <ImageView
+            android:layout_width="@dimen/dimen_52"
+            android:layout_height="@dimen/dimen_52"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dimen_17"
+            android:layout_marginBottom="@dimen/dimen_80"
+            android:clickable="true"
+            android:onClick="@{()->viewModel.setlink()}"
+            android:src="@drawable/ic_link_64x64"
+            app:visibleGone="@{viewModel.data.co_link}"
+            />
+<!--            android:visibility="@{viewModel.data.co_link!=null || viewModel.data.co_link.size >1  == false? View.VISIBLE:View.GONE}" />-->
+
+
+    </RelativeLayout>
+
+</layout>

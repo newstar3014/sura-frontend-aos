@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.JoinViewModel" />
+
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+    </data>
+
+    <RelativeLayout
+        tools:viewBindingIgnore = "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <!--            android:visibility="gone"/>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_36sdp"
+                    android:fontFamily="@font/inter_bold"
+
+                    android:text="선호하는 드라이브 스타일을\n선택해 주세요."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="최대 2개까지 선택 가능합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/dimen_14"
+                    android:visibility="invisible" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_0"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.driveStyleCheckedArray[0] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[0]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(0,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[0]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[0] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.driveStyleCheckedArray[2] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(2,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[2]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[2] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[4] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[4]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(4,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[4]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[4] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+
+                                android:background="@{viewModel.driveStyleCheckedArray[6] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(6,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[6]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[6] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[8] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[8]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(8,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[8]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[8] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_10"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[10] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[10]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(10,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[10]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[10] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_3_5"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_outSide2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:background="@{viewModel.driveStyleCheckedArray[1] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[1]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(1,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[1]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[1] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[3] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[3]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(3,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[3]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[3] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[5] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[5]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(5,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[5]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[5] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[7] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[7]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(7,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[7]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[7] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[9] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[9]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(9,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[9]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[9] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <CheckBox
+                                android:id="@+id/check_box_outside_11"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:background="@{viewModel.driveStyleCheckedArray[11] == true ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@{viewModel.driveStyleCheckedArray[11]}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setDriveStyleSelect(11,true)}"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="@{viewModel.driveStyleArray[11]}"
+                                android:textColor="@{viewModel.driveStyleCheckedArray[11] == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>

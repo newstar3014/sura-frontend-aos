@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.CarRegistrationViewModel" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.MainActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="@color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_ar_left_24px"
+                android:paddingVertical="@dimen/dimen_5"
+                android:paddingHorizontal="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/inter_bold"
+                android:src="@drawable/ic_cell"
+                android:text="차량 정보 등록"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        edit&text box-->
+
+        <LinearLayout
+            android:id="@+id/ll_car_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_44"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="차량 등록을\n도와드릴게요!"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_21" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+
+            <ImageView
+                android:id="@+id/iv_brand"
+                android:layout_width="@dimen/dimen_80"
+                android:layout_height="@dimen/dimen_45"
+                />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:fontFamily="@font/inter_bold"
+            android:text="차량 사진과 자동차 보험 증권을 준비해 주세요"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/dimen_14" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+
+            android:id="@+id/ll_owner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_119"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_90"
+            android:background="@drawable/coner_round_start_bg"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_40"
+
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center|left"
+                android:orientation="vertical"
+
+
+                >
+
+                <TextView
+                    style="@style/textview_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:fontFamily="@font/optimus_princeps"
+                    android:gravity="center"
+                    android:text="VEHICLE IMAGE"
+                    android:textColor="@color/main_color_70"
+                    android:textSize="@dimen/tv_10" />
+
+                <TextView
+                    style="@style/textview_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:text="차량 사진"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="차량번호가 보이도록\n업로드해 주세요."
+                    android:textColor="@color/white_80"
+                    android:textSize="@dimen/_9sdp"
+
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/dimen_60"
+                android:layout_height="@dimen/dimen_60"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/car_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/imgplus_56px" />
+
+                    <ImageView
+                        android:id="@+id/car_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignStart="@+id/car_image"
+                        android:layout_alignTop="@+id/car_image"
+                        android:layout_alignEnd="@+id/car_image"
+                        android:layout_alignBottom="@+id/car_image"
+                        android:background="@color/black_check_80"
+                        android:scaleType="centerInside"
+                        android:visibility="@{viewModel.carimage == null ? View.GONE :View.VISIBLE}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/car_image"
+                        android:layout_alignTop="@+id/car_image"
+                        android:layout_alignEnd="@+id/car_image"
+                        android:layout_alignBottom="@+id/car_image"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:text="@{viewModel.carCheckReturn}"
+                        android:textColor="@color/bottom_sheet_non"
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="@{viewModel.carimage == null ? View.GONE :View.VISIBLE}" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_insurance"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_119"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:background="@drawable/coner_round_start_bg"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_40">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center|left"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    style="@style/textview_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:fontFamily="@font/optimus_princeps"
+                    android:gravity="center"
+                    android:text="AN AUTOMOBILE INSURANCE POLICY"
+                    android:textColor="@color/main_color_70"
+                    android:textSize="@dimen/tv_10" />
+
+                <TextView
+                    style="@style/textview_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:text="자동차 종합보험 가입증서"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="비보험자와 보장내역, 차량번호가\n보이도록 업로드해 주세요."
+                    android:textColor="@color/white_80"
+                    android:textSize="@dimen/_9sdp"
+
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_insurance_image"
+                android:layout_width="@dimen/dimen_60"
+                android:layout_height="@dimen/dimen_60"
+
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/insurance_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imgplus_56px" />
+                <ImageView
+                    android:id="@+id/insurance_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_check_80"
+                    android:layout_alignTop="@+id/insurance_image"
+                    android:layout_alignBottom="@+id/insurance_image"
+                    android:layout_alignStart="@+id/insurance_image"
+                    android:layout_alignEnd="@+id/insurance_image"
+                    android:scaleType="centerInside"
+                    android:visibility="@{viewModel.insuranceimage == null ? View.GONE :View.VISIBLE}" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/insurance_image"
+                        android:layout_alignTop="@+id/insurance_image"
+                        android:layout_alignEnd="@+id/insurance_image"
+                        android:layout_alignBottom="@+id/insurance_image"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:text="@{viewModel.insuerCheckReturn}"
+                        android:textColor="@color/bottom_sheet_non"
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="@{viewModel.insuranceimage == null ? View.GONE :View.VISIBLE}" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <TextView
+        android:id="@+id/tv_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_24"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:fontFamily="@font/inter_regular"
+        android:text="안전을 최우선으로 하는 슈라는\n종합보험에 가입되어 자기신체사고 또는 자동차 상해 특약이\n추가되어 잇으셔야 회원 가입이 승인됩니다.\n\n보험 가입증서 발급 요청은 가입하신 보험회사의 콜센터 또는\n앱, 설계사에게 문의하셔서 발급받으실 수 있습니다."
+        android:textColor="@color/white_60"
+        android:textSize="@dimen/_9sdp" />
+
+    <TextView
+        android:id="@+id/tv_comprehensive_insurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/comprehensive_insurance"
+        android:textColor="@color/white_60"
+        android:textSize="@dimen/_9sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+    <TextView
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_52"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:background="@color/white_8"
+        android:gravity="center"
+        android:fontFamily="@font/inter_regular"
+        android:text="@{viewModel.tv_bottom}"
+        android:textColor="@{viewModel.stateBottomText == true ? ContextCompat.getColor(context, R.color.white): ContextCompat.getColor(context, R.color.white_40)}"
+        android:textSize="@dimen/_9sdp" />
+
+
+</LinearLayout></androidx.appcompat.widget.LinearLayoutCompat>
+
+    </layout>

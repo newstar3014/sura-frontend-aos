@@ -1,0 +1,251 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.BoardViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.BoardFragment">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--            상단 뷰페이저-->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:background="@drawable/background_bg"
+                android:orientation="vertical">
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/trn">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/trn">
+
+                        <!--                        android:background="@drawable/backgound"-->
+
+                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:collapsedTitleGravity="center"
+                            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_anonymous_forum_filter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_24"
+                                    android:layout_marginHorizontal="@dimen/dimen_16"
+                                    android:layout_marginVertical="@dimen/dimen_16"
+                                    android:orientation="horizontal"
+                                    android:overScrollMode="never"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                                <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/pager_anonymous_forum_banner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_96"
+                                    android:layout_marginBottom="@dimen/dimen_16"
+                                    android:layoutDirection="rtl"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/dimen_14"
+                                    android:layout_marginHorizontal="@dimen/dimen_16">
+
+                                    <ImageView
+                                        android:id="@+id/imageView1"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/notice_24x24"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        android:visibility="@{viewModel.search_check == false ? View.VISIBLE :View.GONE}"
+                                        tools:ignore="MissingConstraints" />
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/rv_anonymous_forum_noti"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginVertical="@dimen/dimen_10"
+                                        android:overScrollMode="never"
+                                        android:layout_gravity="center_vertical"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_search_on"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView1"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        android:visibility="@{viewModel.search_check == false ? View.VISIBLE :View.GONE}"
+                                        app:AnonymousForumNotiList="@{viewModel.anonymousForumNoitList}"
+                                         />
+
+                                    <ImageView
+                                        android:id="@+id/iv_search_on"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/search_24x24"
+                                        android:visibility="@{viewModel.search_check == false ? View.VISIBLE :View.GONE}"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                                        tools:ignore="MissingConstraints" />
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_search_on"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:background="@drawable/coner_round_post_bg_w30"
+                                        android:orientation="horizontal"
+                                        android:visibility="@{viewModel.search_check == true ? View.VISIBLE :View.GONE}"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                                        tools:ignore="MissingConstraints">
+                                        <com.google.android.material.textfield.TextInputLayout
+                                            android:id="@+id/tl_search"
+                                            style="@style/textinput_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/trn"
+                                            android:gravity="center_vertical"
+                                            android:padding="2dp"
+                                            app:endIconMode="none"
+                                            >
+
+                                            <com.google.android.material.textfield.TextInputEditText
+                                                android:id="@+id/edt_search"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="@color/trn"
+                                                android:gravity="center_vertical"
+                                                android:padding="3dp"
+                                                android:singleLine="true"
+                                                android:layout_margin="@dimen/dimen_5"
+
+                                                android:focusable="true"
+                                                android:focusableInTouchMode="true"
+                                                android:textColor="@color/white"
+                                                android:textColorHint="@color/white_70"
+                                                android:textSize="@dimen/_10sdp"
+                                                />
+
+
+                                        </com.google.android.material.textfield.TextInputLayout>
+                                        <ImageView
+                                            android:id="@+id/iv_search_off"
+                                            android:layout_width="@dimen/dimen_40"
+                                            android:layout_height="@dimen/dimen_40"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/search_24x24"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                                            tools:ignore="MissingConstraints" />
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:id="@+id/iv_order"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/sort_02_24x24"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_bookmark"
+                                        tools:ignore="MissingConstraints" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_bookmark"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+
+                                        android:src="@{viewModel.bookmark.equals(`북마크`) ? @drawable/bookmark_02_24x24 : @drawable/bookmark_01_24x24 }"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="MissingConstraints" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <!--                                        <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                                            android:id="@+id/rv_anonymous_forum_post_noti"-->
+                    <!--                                            android:layout_width="match_parent"-->
+                    <!--                                            android:layout_height="wrap_content"-->
+                    <!--                                            android:layout_marginHorizontal="@dimen/dimen_24"-->
+                    <!--                                            android:layout_marginTop="@dimen/dimen_21"-->
+                    <!--                                            android:overScrollMode="never"-->
+                    <!--                                            android:visibility="@{viewModel.filterPosition == 0 ? View.VISIBLE : View.GONE}"-->
+                    <!--                                            tools:ignore="MissingConstraints" />-->
+
+                    <!--                                        <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                                            android:id="@+id/rv_anonymous_forum_post_all"-->
+                    <!--                                            android:layout_width="match_parent"-->
+                    <!--                                            android:layout_height="wrap_content"-->
+                    <!--                                            android:layout_marginHorizontal="@dimen/dimen_24"-->
+                    <!--                                            android:layout_marginTop="@dimen/dimen_21"-->
+                    <!--                                            android:overScrollMode="never"-->
+                    <!--                                            android:visibility="@{viewModel.filterPosition == 0 ? View.GONE : View.VISIBLE}"-->
+                    <!--                                            tools:ignore="MissingConstraints" />-->
+                    <com.supercarlounge.supercar.CustomViewPager
+                        android:id="@+id/pager_anonymous_forum_post"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:overScrollMode="never"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        />
+<!--                        app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <ImageView
+            android:id="@+id/iv_writing"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_32"
+            android:layout_marginBottom="@dimen/dimen_32"
+            android:src="@drawable/writing_40x40" />
+
+
+    </RelativeLayout>
+
+</layout>

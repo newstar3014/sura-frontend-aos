@@ -1,0 +1,540 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.MyCarBoardViewModel" />
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.BoardFragment">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--            상단 뷰페이저-->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:background="@drawable/background_bg"
+                android:orientation="vertical">
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/trn">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/trn">
+
+                        <!--                        android:background="@drawable/backgound"-->
+
+                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:collapsedTitleGravity="center"
+                            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/my_car_board_src1"
+                                    android:adjustViewBounds="true"
+
+                                    />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_12sdp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:gravity="center"
+
+                                    android:layout_marginTop="@dimen/_18sdp"
+                                    android:text="인기글로 선정된 게시글 보러 가기"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:id="@+id/ll_best"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    tools:ignore="MissingConstraints">
+
+
+                                    <TextView
+                                        android:id="@+id/tv_bland"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/optimus_princeps_pemi_bold"
+                                        android:gravity="center"
+                                        android:text="BEST POSTS"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_14sdp" />
+                                    <!--                  -->
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_car_Select"
+                                        android:layout_width="@dimen/_18sdp"
+                                        android:layout_height="@dimen/_18sdp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/ar_right_cloudy_24x24" />
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_1sdp"
+                                    android:background="@color/white_30"
+                                    android:layout_marginVertical="@dimen/_5sdp"
+                                     />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="bottom"
+                                    >
+
+                                    <RelativeLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="@dimen/_70sdp"
+                                        android:layout_weight="1">
+                                        <ImageView
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_alignStart="@+id/iv_rank2"
+                                            android:layout_alignTop="@id/iv_rank2"
+                                            android:layout_alignEnd="@+id/iv_rank2"
+                                            android:layout_alignBottom="@+id/iv_rank2"
+                                            android:layout_marginHorizontal="@dimen/_8sdp"
+                                            android:layout_marginBottom="@dimen/_3sdp"
+                                            android:padding="@dimen/_14sdp"
+                                            android:src="@drawable/ic_main_gold"
+                                            />
+                                        <ImageView
+                                            android:layout_width="@dimen/_40sdp"
+                                            android:layout_height="@dimen/_40sdp"
+                                            android:layout_alignEnd="@+id/iv_rank2"
+                                            android:layout_alignStart="@+id/iv_rank2"
+                                            android:layout_alignBottom="@+id/iv_rank2"
+                                            android:layout_alignTop="@id/iv_rank2"
+                                            android:layout_marginHorizontal="@dimen/_8sdp"
+                                            android:layout_marginBottom="@dimen/_3sdp"
+                                            app:rankImage="@{viewModel.myCarBestBoardLists.size() >1 ? viewModel.myCarBestBoardLists.get(1).mmi_img : `` }"
+                                            />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank2"
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_centerInParent="true"
+                                            android:adjustViewBounds="true"
+                                            android:onClick="@{()->viewModel.setIntent(1)}"
+                                            android:src="@drawable/rank_frame2" />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank2_mark"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:layout_alignStart="@+id/iv_rank2"
+                                            android:layout_alignEnd="@+id/iv_rank2"
+                                            android:layout_alignParentTop="true"
+                                            android:src="@drawable/rank_mark2"
+
+                                            />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="@dimen/_90sdp"
+                                        android:layout_weight="1">
+                                        <ImageView
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_alignStart="@+id/iv_rank1"
+                                            android:layout_alignTop="@id/iv_rank1"
+                                            android:layout_alignEnd="@+id/iv_rank1"
+                                            android:layout_alignBottom="@+id/iv_rank1"
+                                            android:layout_marginHorizontal="@dimen/_12sdp"
+                                            android:layout_marginBottom="@dimen/_6sdp"
+                                            android:padding="@dimen/_18sdp"
+                                            android:src="@drawable/ic_main_gold"
+
+                                            />
+                                        <ImageView
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_alignEnd="@+id/iv_rank1"
+                                            android:layout_alignStart="@+id/iv_rank1"
+                                            android:layout_alignBottom="@+id/iv_rank1"
+                                            android:layout_alignTop="@id/iv_rank1"
+                                            android:layout_marginHorizontal="@dimen/_12sdp"
+                                            android:layout_marginBottom="@dimen/_6sdp"
+                                            app:rankImage="@{viewModel.myCarBestBoardLists.size() >=1 ? viewModel.myCarBestBoardLists.get(0).mmi_img : `` }"
+                                            />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank1"
+                                            android:layout_width="@dimen/_80sdp"
+                                            android:layout_height="@dimen/_80sdp"
+                                            android:layout_centerInParent="true"
+                                            android:adjustViewBounds="true"
+                                            android:onClick="@{()->viewModel.setIntent(0)}"
+                                            android:src="@drawable/rank_frame1" />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank1_mark"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:src="@drawable/rank_mark1"
+                                            android:layout_alignEnd="@+id/iv_rank1"
+                                            android:layout_alignStart="@+id/iv_rank1"
+                                            android:layout_alignParentTop="true"
+
+                                            />
+
+                                    </RelativeLayout>
+                                    <RelativeLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="@dimen/_70sdp"
+                                        android:layout_weight="1">
+                                        <ImageView
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_alignStart="@+id/iv_rank3"
+                                            android:layout_alignTop="@id/iv_rank3"
+                                            android:layout_alignEnd="@+id/iv_rank3"
+                                            android:layout_alignBottom="@+id/iv_rank3"
+                                            android:layout_marginHorizontal="@dimen/_8sdp"
+                                            android:layout_marginBottom="@dimen/_3sdp"
+                                            android:padding="@dimen/_14sdp"
+                                            android:src="@drawable/ic_main_gold"
+                                            />
+                                        <ImageView
+                                            android:layout_width="@dimen/_40sdp"
+                                            android:layout_height="@dimen/_40sdp"
+                                            android:layout_alignEnd="@+id/iv_rank3"
+                                            android:layout_alignStart="@+id/iv_rank3"
+                                            android:layout_alignBottom="@+id/iv_rank3"
+                                            android:layout_alignTop="@id/iv_rank3"
+                                            app:rankImage="@{viewModel.myCarBestBoardLists.size() >2 ? viewModel.myCarBestBoardLists.get(2).mmi_img : `` }"
+                                            android:layout_marginHorizontal="@dimen/_8sdp"
+                                            android:layout_marginBottom="@dimen/_3sdp"
+
+
+                                            />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank3"
+                                            android:layout_width="@dimen/_60sdp"
+                                            android:layout_height="@dimen/_60sdp"
+                                            android:layout_centerInParent="true"
+                                            android:adjustViewBounds="true"
+                                            android:onClick="@{()->viewModel.setIntent(2)}"
+                                            android:src="@drawable/rank_frame3" />
+
+                                        <ImageView
+                                            android:id="@+id/iv_rank3_mark"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:src="@drawable/rank_mark3"
+                                            android:layout_alignEnd="@+id/iv_rank3"
+                                            android:layout_alignStart="@+id/iv_rank3"
+                                            android:layout_alignParentTop="true"
+
+                                            />
+
+                                    </RelativeLayout>
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:gravity="left"
+                                    android:background="@drawable/coner_round_back_8"
+                                    android:layout_marginTop="@dimen/_12sdp"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:onClick="@{()->viewModel.setIntent(0)}"
+                                    android:paddingVertical="@dimen/_8sdp"
+                                    android:text="@{viewModel.tv1}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:gravity="left"
+                                    android:background="@drawable/coner_round_back_8"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:onClick="@{()->viewModel.setIntent(1)}"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:paddingVertical="@dimen/_8sdp"
+                                    android:text="@{viewModel.tv2}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:gravity="left"
+                                    android:onClick="@{()->viewModel.setIntent(2)}"
+                                    android:background="@drawable/coner_round_back_8"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:paddingVertical="@dimen/_8sdp"
+                                    android:text="@{viewModel.tv3}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+                                <TextView
+                                    android:id="@+id/tv_hot"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_bold"
+                                    android:gravity="center"
+                                    android:background="@drawable/coner_round_back_8_main"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:paddingVertical="@dimen/_8sdp"
+                                    android:text="인기글 선정 혜택 보러가기"
+                                    android:textColor="@color/main_color"
+                                    android:textSize="@dimen/_9sdp" />
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_22sdp"
+                                    >
+
+
+
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_search_on"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:background="@drawable/coner_round_post_bg_w30"
+                                        android:orientation="horizontal"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_liner"
+                                        tools:ignore="MissingConstraints">
+                                        <com.google.android.material.textfield.TextInputLayout
+                                            android:id="@+id/tl_search"
+                                            style="@style/textinput_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/trn"
+                                            android:gravity="center_vertical"
+                                            android:padding="2dp"
+                                            app:endIconMode="none"
+                                            >
+
+                                            <com.google.android.material.textfield.TextInputEditText
+                                                android:id="@+id/edt_search"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="@color/trn"
+                                                android:gravity="center_vertical"
+                                                android:padding="3dp"
+                                                android:singleLine="true"
+                                                android:text="@={viewModel.search}"
+                                                android:layout_margin="@dimen/dimen_5"
+                                                android:focusable="true"
+                                                android:focusableInTouchMode="true"
+                                                android:textColor="@color/white"
+                                                android:textColorHint="@color/white_70"
+                                                android:textSize="@dimen/_10sdp"
+                                                />
+
+
+                                        </com.google.android.material.textfield.TextInputLayout>
+
+                                        <ImageView
+                                            android:id="@+id/iv_search"
+                                            android:layout_width="@dimen/dimen_40"
+                                            android:layout_height="@dimen/dimen_40"
+                                            android:scaleType="centerInside"
+                                            android:src="@drawable/search_24x24"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_order"
+                                            tools:ignore="MissingConstraints" />
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:id="@+id/iv_liner"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+                                        android:onClick="@{()->viewModel.gridOnClick(false)}"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_grid"
+                                        android:src="@{viewModel.gridOn == false ? @drawable/ic_ic_vew_on_24x24 : @drawable/ic_ic_vew_off_24x24 }"
+                                        tools:ignore="MissingConstraints" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_grid"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+                                        android:onClick="@{()->viewModel.gridOnClick(true)}"
+                                        app:layout_constraintEnd_toStartOf="@+id/iv_bookmark"
+                                        android:src="@{viewModel.gridOn == true ? @drawable/ic_cell_5 : @drawable/ic_cell_6 }"
+                                        tools:ignore="MissingConstraints" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_bookmark"
+                                        android:layout_width="@dimen/dimen_40"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:scaleType="centerInside"
+
+
+                                        android:src="@{viewModel.bookmark.equals(`Y`) ? @drawable/bookmark_02_24x24 : @drawable/bookmark_01_24x24 }"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="MissingConstraints" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <!--                                        <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                                            android:id="@+id/rv_anonymous_forum_post_noti"-->
+                    <!--                                            android:layout_width="match_parent"-->
+                    <!--                                            android:layout_height="wrap_content"-->
+                    <!--                                            android:layout_marginHorizontal="@dimen/dimen_24"-->
+                    <!--                                            android:layout_marginTop="@dimen/dimen_21"-->
+                    <!--                                            android:overScrollMode="never"-->
+                    <!--                                            android:visibility="@{viewModel.filterPosition == 0 ? View.VISIBLE : View.GONE}"-->
+                    <!--                                            tools:ignore="MissingConstraints" />-->
+
+                    <!--                                        <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                                            android:id="@+id/rv_anonymous_forum_post_all"-->
+                    <!--                                            android:layout_width="match_parent"-->
+                    <!--                                            android:layout_height="wrap_content"-->
+                    <!--                                            android:layout_marginHorizontal="@dimen/dimen_24"-->
+                    <!--                                            android:layout_marginTop="@dimen/dimen_21"-->
+                    <!--                                            android:overScrollMode="never"-->
+                    <!--                                            android:visibility="@{viewModel.filterPosition == 0 ? View.GONE : View.VISIBLE}"-->
+                    <!--                                            tools:ignore="MissingConstraints" />-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_my_ca_board"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:overScrollMode="never"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        app:mycarboard="@{viewModel.myCarBoardLists}"
+                        app:grideOn ="@{viewModel.gridOn}"
+                        />
+<!--                    android:visibility="@{viewModel.myCarBoardLists.size() != 0 ? View.VISIBLE :View.GONE}"-->
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        android:visibility="@{viewModel.myCarBoardLists.size() == 0 ? View.VISIBLE :View.GONE}"
+                        android:layout_height="match_parent">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_50sdp"
+
+                        android:gravity="center_horizontal"
+
+                        android:orientation="vertical"
+                      >
+
+                        <ImageView
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:alpha="@{viewModel.search.equals(``) ==false ? 0.6f:1.0f}"
+                            android:src="@{viewModel.search.equals(``) ==false ? @drawable/ic_search : @drawable/ic_list_alt_80x80}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="@{viewModel.nottext}"
+                            android:textColor="@color/white_60"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.core.widget.NestedScrollView>
+
+<!--                    app:myCarBoard="@{viewModel.myCarBoardList}"-->
+
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <ImageView
+            android:id="@+id/iv_writing"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_32"
+            android:layout_marginBottom="@dimen/dimen_32"
+            android:src="@drawable/writing_40x40" />
+
+
+    </RelativeLayout>
+
+</layout>

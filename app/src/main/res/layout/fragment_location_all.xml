@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationAllViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+
+        android:orientation="vertical"
+        tools:context=".ui.fragment.DriveAwayNewFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:locationList="@{viewModel.spotlist}" />
+
+
+        <!--        android:layout_below="@+id/rv_drive_away_new"-->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.spotlist.size() == 0 ? View.VISIBLE :View.GONE}">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/ic_list_alt_80x80" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="등록 된 장소가 없습니다."
+                android:textColor="@color/white_60"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>
+</layout>
+

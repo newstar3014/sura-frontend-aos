@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.NewDriveWritingViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:viewBindingIgnore="true">
+        <!--            android:visibility="gone"/>-->
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/trn">
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:background="@color/trn">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/_36sdp"
+                            android:fontFamily="@font/inter_bold"
+
+                            android:text="어디로 갈까요?"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/dimen_2"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="최대 2개까지 선택 가능합니다."
+                            android:textColor="@color/white_70"
+                            android:textSize="@dimen/dimen_14"
+                            android:visibility="invisible" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/_18sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_weight="1"
+                                android:background="@{viewModel.type1 == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@={viewModel.type1}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="만나서 정하기"
+                                android:textColor="@{viewModel.type1 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                            <CheckBox
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:background="@{viewModel.type2 == true ? @drawable/checkbox_true2 : @drawable/checkbox_false}"
+                                android:button="@null"
+                                android:checked="@={viewModel.type2}"
+                                android:fontFamily="@font/inter_medium"
+                                android:gravity="center"
+                                android:paddingHorizontal="@dimen/dimen_15"
+                                android:text="장소 선택하기"
+                                android:textColor="@{viewModel.type2 == true ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white_70)}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_30sdp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="장소를 선택하시면 해당 장소에 좋아요 누른 사람에게\n푸시 알림이 가서 빠른 매칭이 가능합니다!"
+                            android:textColor="@color/bottom_sheet_non"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.type2 == true ? View.VISIBLE :View.GONE}">
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 0 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(0)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[0]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 0 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp"/>
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 1 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(1)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[1]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 1 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 2 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(2)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[2]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 2 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 3 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(3)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[3]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 3 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 4 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(4)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[4]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 4 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp"/>
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 5 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(5)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[5]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 5 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_7"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 6 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(6)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[6]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 6 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_8"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 7 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(7)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[7]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 7 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_9"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 8 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(8)}"
+                                        android:paddingHorizontal="@dimen/_11sdp"
+                                        android:text="@{viewModel.arraytype[8]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 8 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_type_10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:layout_marginRight="@dimen/_7sdp"
+                                    android:background="@{viewModel.nowtypeindex == 9 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                    android:button="@null"
+                                    android:fontFamily="@font/inter_medium"
+                                    android:gravity="center"
+                                    android:onClick="@{()->viewModel.settype(9)}"
+                                    android:paddingHorizontal="@dimen/dimen_15"
+                                    android:text="@{viewModel.arraytype[9]}"
+                                    android:textColor="@{viewModel.nowtypeindex == 9 ? @color/main_color : @color/white_70}"
+                                    android:textSize="@dimen/_9sdp" />
+                                    <CheckBox
+                                        android:id="@+id/checkbox_type_11"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:layout_marginRight="@dimen/_7sdp"
+                                        android:background="@{viewModel.nowtypeindex == 10 ? @drawable/checkbox_true : @drawable/checkbox_false}"
+                                        android:button="@null"
+                                        android:fontFamily="@font/inter_medium"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.settype(10)}"
+                                        android:paddingHorizontal="@dimen/dimen_15"
+                                        android:text="@{viewModel.arraytype[10]}"
+                                        android:textColor="@{viewModel.nowtypeindex == 10 ? @color/main_color : @color/white_70}"
+                                        android:textSize="@dimen/_9sdp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:visibility="@{viewModel.type2 == true ? View.VISIBLE : View.GONE}">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_location_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+
+                    android:visibility="@{viewModel.spotlist.size() != 0 ? View.VISIBLE:View.GONE}"
+                    app:spotlist2="@{viewModel.spotlist}" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.spotlist.size() == 0 ? View.VISIBLE:View.GONE}">
+
+                    <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:src="@drawable/ic_list_alt_80x80" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="@{viewModel.nottext}"
+                        android:textColor="@color/white_60"
+                        android:textSize="@dimen/_12sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </RelativeLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

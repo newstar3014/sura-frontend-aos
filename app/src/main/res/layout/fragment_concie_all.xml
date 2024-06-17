@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.supercarlounge.supercar.viewmodel.ConciergePageViewModel"/>
+        <import type="android.view.View" />
+    </data>
+    <LinearLayout
+        tools:context=".ui.fragment.pagerconicergef.ConciergeAllFragment"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_40"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.size}"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/white_90"
+            android:layout_marginStart="@dimen/dimen_16"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="의 제휴사가 있습니다"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/white_40"
+            />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginTop="@dimen/dimen_7"
+            android:background="@color/my_page_bottom_view"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:overScrollMode="never"
+            android:id="@+id/rv_concierge"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            app:conciergelist="@{viewModel.conciergelist}"
+            android:visibility="@{viewModel.conciergelist.size() != 0 ? View.VISIBLE :View.GONE}"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.conciergelist.size() == 0 ? View.VISIBLE :View.GONE}">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/ic_list_alt_80x80" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="등록된 컨시어지가 없습니다"
+                android:textColor="@color/white_60"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+</layout>
+

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.TestVipLoungeViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:text="@{viewModel.titleText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/iv_vip_i"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/question_24x24"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_bg"
+            android:overScrollMode="never">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical"
+                tools:context=".ui.activity.PostNoticeCheckActivity">
+
+                <!--        <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="match_parent"-->
+                <!--            android:background="@color/trn">-->
+
+                <!--            <com.google.android.material.appbar.AppBarLayout-->
+                <!--                android:id="@+id/appbar"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:background="@color/trn">-->
+
+                <!--                <com.google.android.material.appbar.CollapsingToolbarLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    app:collapsedTitleGravity="center"-->
+                <!--                    app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.supercarlounge.supercar.customview.CustomSlowViewPager
+                        android:id="@+id/pager_banner_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginBottom="@dimen/dimen_27dp"
+                        android:layoutDirection="rtl"
+                        app:banners="@{viewModel.bannertop}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+
+                        android:orientation="vertical">
+
+
+                        <!--                //스택1-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/stack1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginHorizontal="@dimen/_20sdp"
+                            android:visibility="@{viewModel.viewStack == 1 ? View.VISIBLE : View.GONE}">
+
+
+                            <ImageView
+                                android:id="@+id/rpm"
+                                android:layout_width="@dimen/_160sdp"
+                                android:layout_height="@dimen/_160sdp"
+                                android:layout_marginBottom="@dimen/_50sdp"
+                                android:background="@drawable/vip_an"
+                                android:scaleType="centerInside"
+                                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/linearLayoutCompat4"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginHorizontal="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/iv_profile"
+                                    android:layout_width="@dimen/_26sdp"
+                                    android:layout_height="@dimen/_26sdp"
+                                    android:scaleType="centerInside"
+                                    app:round_photo="@{viewModel.image}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_8"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:text="@{viewModel.name}"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_10sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:text="님의 VIP 달성률"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/_10sdp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/linearLayoutCompat"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginHorizontal="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_35sdp"
+                                android:layout_weight="2"
+                                android:gravity="top|center_horizontal"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toTopOf="@+id/stack1_bottom">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="선정 기간 및 유지 기간"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:fontFamily="@font/optimus_princeps"
+                                        android:text="선정 : 매달 1일 ~ 말일 까지 \n유지 : 익월 1일 ~ 말일 까지"
+                                        android:textColor="@color/text_guide"
+                                        android:textSize="@dimen/_8sdp" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginHorizontal="@dimen/dimen_16"
+                                    android:background="@color/home_bottom_view" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left"
+                                        android:text="선정 조건"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:fontFamily="@font/optimus_princeps"
+                                        android:text="서비스 이용 실적 최상위 멤버 \n또는 특별 선정 고객"
+                                        android:textColor="@color/text_guide"
+                                        android:textSize="@dimen/_8sdp" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/stack1_bottom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:background="@drawable/coner_round_drive_vip_box_bg"
+                                android:gravity="center_vertical"
+                                android:onClick="@{() -> viewModel.stack()}"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_7sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_15"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/vip_01_24x24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_5_5"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:text="VIP Concierge Service"
+                                    android:textColor="@color/round_color1"
+                                    android:textSize="@dimen/_11sdp" />
+
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_15"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_ar_left_16x16" />
+                                />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!--                //스택2-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/stack2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_400sdp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginHorizontal="@dimen/_20sdp"
+                            android:visibility="@{viewModel.viewStack == 2 ? View.VISIBLE : View.GONE}"
+                            tools:ignore="MissingConstraints">
+
+                            <ImageView
+                                android:id="@+id/imageView9"
+                                android:layout_width="@dimen/_105sdp"
+                                android:layout_height="@dimen/_105sdp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:scaleType="centerInside"
+
+                                android:src="@drawable/logo_lounge_109x109"
+                                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/optimus_princeps"
+                                android:text="VIP LOUNGE ERVICE"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_15sdp"
+                                app:layout_constraintBottom_toTopOf="@+id/textView9"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:fontFamily="@font/optimus_princeps"
+                                android:gravity="center"
+                                android:text="슈라 서비스 실적 최상위 멤버님들만을 위한\n특별 서비스입니다."
+                                android:textColor="@color/white_70"
+                                android:textSize="@dimen/_10sdp"
+                                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/linearLayoutCompat2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_40sdp"
+                                android:gravity="center"
+                                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat5"
+
+
+                                >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_110sdp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/frame_1880" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/linearLayoutCompat5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:background="@drawable/coner_round_drive_vip_box_bg"
+                                android:clickable="true"
+                                android:gravity="center"
+                                android:onClick="@{()->viewModel.setdial()}"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_7sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_15"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/hotline_24x24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_5_5"
+                                    android:fontFamily="@font/optimus_princeps"
+                                    android:text="HOT-LINE CALL"
+                                    android:textColor="@color/round_color1"
+                                    android:textSize="@dimen/_11sdp" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+
+                    <com.supercarlounge.supercar.customview.CustomSlowViewPager
+                        android:id="@+id/pager_banner_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layoutDirection="rtl"
+                        app:banners="@{viewModel.bannerbottom}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_16">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_5_5"
+                            android:fontFamily="@font/optimus_princeps_pemi_bold"
+                            android:src="@drawable/ic_cell"
+                            android:text="제휴사별 혜택안내"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:background="@color/home_bottom_view" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/home_bottom_view" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
+                        style="@style/contablayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@color/trn"
+                        android:fillViewport="true"
+                        app:tabGravity="fill"
+                        app:tabMode="fixed"
+                        app:tabTextAppearance="@style/MyTabLayoutTextAppearance" />
+
+                </RelativeLayout>
+                <!--            </com.google.android.material.appbar.AppBarLayout>-->
+
+                <com.supercarlounge.supercar.CustomViewPager
+                    android:id="@+id/pager_concierge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:conciergetype="@{viewModel.tablist}"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <!--        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <!--        하단바-->
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

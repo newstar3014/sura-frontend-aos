@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.supercarlounge.supercar"
+    android:installLocation="preferExternal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.LOCAL_MAC_ADDRESS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION " />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION  " />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE  " />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- <uses-permission android:name="android.permission.RECEIVE_SMS" /> -->
+    <!-- queries에 카카오톡 패키지 추가 -->
+    <queries>
+        <package android:name="com.kakao.talk" />
+        <package android:name="com.google.android.gm" />
+        <package android:name="com.nhn.android.nmap" />
+        <package android:name="net.daum.android.map" />
+        <package android:name="com.skt.tmap.ku" />
+    </queries>
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.SuperCarX"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:supportsRtl"
+        tools:targetApi="33">
+        <activity
+            android:name=".ui.activity.LocationSpotSearchActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="6xbzkmlut0" />
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_TYPE"
+            android:value="gov" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" /> <!-- <receiver -->
+        <!-- android:name=".SMSReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:directBootAware="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="false"
+            android:label="@string/title_login"
+            android:theme="@style/Theme.SuperCarX.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"></activity>
+
+        <service
+            android:name=".FcmMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".ui.activity.IntroActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- "kakao${YOUR_NATIVE_APP_KEY}://kakaolink" 형식의 앱 실행 스킴을 설정하는데 사용 -->
+                <data
+                    android:host="kakaolink"
+                    android:scheme="kakao40ca7e07f42ef60bf2980a74cc7d8ed7" />
+                <data
+                    android:host="supercarnative.page.link"
+                    android:path="/Invite"
+                    android:scheme="https" />
+                <data
+                    android:host="https://supercarnative.page.link"
+                    android:path="/Location"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".ui.activity.JoinActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.HeartsShopActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.HeartsShopInfoActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.AlimActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.ConciergeDetailActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PostNoticeActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PopInfoActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyCarBoardActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.LoungeActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyCarHotBoardActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyCarBestBoardActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.StartActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PostNoticeCheckActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PostWritingActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.GuideActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PostActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" /> <!-- android:windowSoftInputMode="adjustUnspecified" -->
+        <activity
+            android:name=".ui.activity.DriveWritingActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.DriveVipRankActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.LikeSendActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyCarBoardWritingActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.ProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.LockActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.HeartHistoryActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PaswordSearchActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.DrivePassGuideActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.DrivePassVipGuideActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.DriveDetailActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.ServiceCenterActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.ProfileRequestActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MatchingActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.BlockAcquaintancesActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.CarCheckActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.OwnerActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.CarRegistrationActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.IncomeInformationActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyJoinInfomationActivity"
+            android:windowSoftInputMode="stateUnchanged|adjustResize" />
+        <activity
+            android:name=".ui.activity.SubscriptionApplicationCompleteActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.ProfileCorrectionActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.LoginPassActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.PostDriveCheckActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.RpmActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.MyCarInformationActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.CouponActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.RecentDriveListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.priview.activity.PrvMainActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".ui.activity.ProfileCompanyActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.PointMallActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.PointMallGuideActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.PointMallLogActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.WebViewActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.LocationSpotDetailActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.priview.activity.PrvProfileActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.priview.activity.PrvPointMallActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.priview.activity.PrvGuideActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.LocationRecoListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.LocationAreaListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.DriveAwayListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.InformationUseActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.LocationMainActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".ui.activity.OwnerAndPassengerActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.LocationWritingActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.NewDriveWritingActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.AddressWebViewActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ui.activity.LocationGuideActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.ImageActivity"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

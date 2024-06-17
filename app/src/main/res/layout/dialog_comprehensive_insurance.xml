@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogLoadingViewModel">
+
+
+        </variable>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <LinearLayout
+
+        android:id="@+id/rl_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/trn">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_dialog1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/popbg_1000x2000"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dimen_20dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_dialog2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:text="왜 종합보험이 있어야 하나요?"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:text="책임보험은 가입하실 수 없습니다.\n자기 차량 신체사고, 자동차 상해\n특약에 가입되어 있으셔야 합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:text="위 특약은 사고발생 시 자신과 동승자에 대한\n인적 피해를 보상 합니다."
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="1. 회원 가입 신청 휴대전화번호 명의인과\n
+회원 가입 신청인의 동일성 확인\n\n
+2. 회원의 매칭 서비스 이용 중 교통사고가\n
+발생한 경우에 대한 대응\n\n
+3. 본인 소유의 명의 차량 확인\n\n
+4. 서비스 중복 가입 방지\n\n
+5. 회원에게 약관 상 회원 가입 거절 사유가 \n
+있는지 여부 등 회원 가입 신청에 대한 회사의 승낙 여부 판단등"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+
+                    android:gravity="center"
+                    android:text="확인"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="@dimen/dimen_40"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:background="@drawable/circle_white"
+        android:src="@drawable/ic_dialog_close_light"/>
+</RelativeLayout>
+</layout>

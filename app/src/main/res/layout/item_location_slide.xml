@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemLocationSlideBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.LocationSlideData" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <RelativeLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/dimen_8"
+                app:cardElevation="0dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                app:strokeColor="@android:color/transparent"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    app:layout_constraintDimensionRatio="10:15"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_sample1" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginHorizontal="@dimen/dimen_8"
+                android:text="@{dataset.lb_title}"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/dimen_7_5"
+                android:textSize="@dimen/_14sdp"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

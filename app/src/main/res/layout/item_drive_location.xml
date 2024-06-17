@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemDriveLocationBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.DriveAwayData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <RelativeLayout
+            android:id="@+id/item"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_weight="8"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/item_sample1"
+                    app:layout_constraintDimensionRatio="10:15" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        style="@style/textview_inter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/view_bottom"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginHorizontal="@dimen/dimen_8"
+                        android:layout_marginBottom="@dimen/dimen_7_5"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@{dataset.GetTitle()}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_sub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/dimen_8"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:gravity="left|center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_10"
+                            android:layout_height="@dimen/dimen_10"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_2sdp"
+                            android:scaleType="centerInside"
+                            android:src="@{dataset.u_gender.equals(`MALE`) ? @drawable/ic_man_12x12 :@drawable/ic_woman_12x12}" />
+
+                        <TextView
+                            android:id="@+id/tv_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/optimus_princeps_pemi_bold"
+                            android:gravity="center"
+                            android:text="@{dataset.getBoardType()}"
+                            android:textColor="@color/check_box_drive_true"
+                            android:textSize="@dimen/_7sdp"
+
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </RelativeLayout>
+
+</layout>

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogDriveRegiViewModel">
+
+
+        </variable>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:background="@color/trn"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/popbg_1000x1000"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="@dimen/dimen_20"
+            android:paddingBottom="@dimen/dimen_10"
+            >
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_main"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                />
+
+            <TextView
+                android:id="@+id/tv_main0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.foldcheckset1()}"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="프로필 공개"
+                        android:textColor="@{viewModel.foldchecked1  ? @color/white : @color/white_40 }"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@{viewModel.foldchecked1 ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+
+                        />
+
+
+                </LinearLayout>
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:visibility="@{viewModel.foldchecked1 ? View.VISIBLE : View.GONE}"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/white_70"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/profile_40x40" />
+
+                    <TextView
+                        android:id="@+id/tv_main1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/white_70"
+                        android:text="@={viewModel.tv_sub1}"
+                        android:textSize="@dimen/_7sdp" />
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="horizontal"
+                            android:onClick="@{()->viewModel.checkset3()}"
+                            android:clickable="true"
+                            >
+
+                            <CheckBox
+                                android:layout_width="@dimen/dimen_36"
+                                android:layout_height="@dimen/dimen_36"
+                                android:textSize="@dimen/_9sdp"
+                                android:gravity="center"
+                                android:checked="@={viewModel.checked3}"
+                                android:textColor="@color/check_text_non"
+                                android:button="@null"
+                                android:clickable="false"
+                                android:background="@drawable/custom_checkbox_post_noti" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="위의 사항을 확인하였습니다."
+                                android:textColor="@{viewModel.checked3  ? @color/white : @color/gray }"
+                                android:textSize="@dimen/_9sdp" />
+                        </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.foldcheckset2()}"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="하트 대납"
+                        android:textColor="@{viewModel.foldchecked2  ? @color/white : @color/white_40 }"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@{viewModel.foldchecked2 ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+
+                       />
+
+
+                </LinearLayout>
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:visibility="@{viewModel.foldchecked2 ? View.VISIBLE : View.GONE}"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/white_70"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_group_1671" />
+
+                    <TextView
+                        android:id="@+id/tv_main2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/white_70"
+                        android:text="@={viewModel.tv_sub2}"
+                        android:textSize="@dimen/_7sdp" />
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:onClick="@{()->viewModel.checkset1()}"
+                        android:clickable="true"
+                        >
+
+                        <CheckBox
+                            android:layout_width="@dimen/dimen_36"
+                            android:layout_height="@dimen/dimen_36"
+                            android:textSize="@dimen/_11sdp"
+                            android:gravity="center"
+                            android:checked="@={viewModel.checked1}"
+                            android:textColor="@color/check_text_non"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:background="@drawable/custom_checkbox_post_noti" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="동성 대납 제외"
+                            android:textColor="@{viewModel.checked1  ? @color/white : @color/gray }"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal"
+                        android:onClick="@{()->viewModel.checkset2()}"
+                        android:clickable="true"
+                        >
+
+                        <CheckBox
+                            android:layout_width="@dimen/dimen_36"
+                            android:layout_height="@dimen/dimen_36"
+                            android:textSize="@dimen/_9sdp"
+                            android:gravity="center"
+                            android:checked="@={viewModel.checked2}"
+                            android:textColor="@color/check_text_non"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:background="@drawable/custom_checkbox_post_noti" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위의 사항을 확인하였습니다."
+                            android:textColor="@{viewModel.checked2  ? @color/white : @color/gray }"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/cancel"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="취소"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_11sdp" />
+                <TextView
+                    android:id="@+id/ok"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="확인"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+
+                <!--            android:text="@={viewModel.tv_ok}"-->
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+
+</layout>

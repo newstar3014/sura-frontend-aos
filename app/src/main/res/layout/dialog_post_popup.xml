@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogPostPopUpViewModel">
+
+
+        </variable>
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:background="@color/round_edt_box"
+        android:layout_height="match_parent">
+
+
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_noti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 2? View.VISIBLE :View.GONE}" >
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+
+                            android:src="@drawable/declaration_16x16"
+                            android:scaleType="centerInside"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/tv_noti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="@string/declaration"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 1? View.VISIBLE :View.GONE}" >
+                        <ImageView
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+                            android:src="@drawable/write_16x16"
+                            android:scaleType="centerInside"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/tv_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/edit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 1? View.VISIBLE :View.GONE}" >
+                        <ImageView
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+
+                            android:src="@drawable/delete_16x16"
+                            android:scaleType="centerInside"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/tv_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="@string/delete"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_block"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 2? View.VISIBLE :View.GONE}" >
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+
+                            android:src="@drawable/prohibition_16x16"
+                            android:scaleType="centerInside"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/tv_block"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="@string/block"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_new_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 3? View.VISIBLE :View.GONE}" >
+
+
+
+                        <TextView
+                            android:id="@+id/tv_new_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="최신순"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_views_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 3? View.VISIBLE :View.GONE}" >
+
+
+                        <TextView
+                            android:id="@+id/tv_views_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="조회수순"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_comment_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.viewtype == 3? View.VISIBLE :View.GONE}" >
+
+
+
+                        <TextView
+                            android:id="@+id/tv_comment_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dimen_3"
+                            android:text="댓글순"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                    <!--            android:text="@={viewModel.tv_ok}"-->
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </FrameLayout>
+
+</layout>

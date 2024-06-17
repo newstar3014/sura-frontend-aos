@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_club_lounge"
+        android:name="com.supercarlounge.supercar.ui.fragment.ConciergeFragment"
+        android:label="@string/title_club_lounge"
+        tools:layout="@layout/fragment_home" >
+
+>
+        <action
+            android:id="@+id/action_navigation_club_lounge_to_navigation_vip_lounge"
+            app:destination="@id/navigation_vip_lounge" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_vip_lounge"
+        android:name="com.supercarlounge.supercar.ui.fragment.VipLoungeFragment"
+        android:label="@string/title_vip_lounge"
+        tools:layout="@layout/fragment_home" >
+
+
+        <action
+            android:id="@+id/action_navigation_vip_lounge_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_vip_lounge_to_navigation_club_lounge"
+            app:destination="@id/navigation_club_lounge" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.supercarlounge.supercar.ui.fragment.HomeFragment2"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_anonymous_form"
+            app:destination="@id/navigation_anonymous_form" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_vip_lounge"
+            app:destination="@id/navigation_vip_lounge" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_anonymous_form"
+        android:name="com.supercarlounge.supercar.ui.fragment.BoardFragment"
+        android:label="@string/title_anonymous_form"
+        tools:layout="@layout/fragment_anonymous_forum" >
+
+
+        <action
+            android:id="@+id/action_navigation_anonymous_form_to_navigation_my_page"
+            app:destination="@id/navigation_my_page" />
+        <action
+            android:id="@+id/action_navigation_anonymous_form_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_page"
+        android:name="com.supercarlounge.supercar.ui.fragment.MyPageFragment"
+        android:label="@string/title_my_page"
+        tools:layout="@layout/fragment_my_page" >
+        <action
+            android:id="@+id/action_navigation_my_page_to_navigation_anonymous_form"
+            app:destination="@id/navigation_anonymous_form" />
+    </fragment>
+
+
+</navigation>

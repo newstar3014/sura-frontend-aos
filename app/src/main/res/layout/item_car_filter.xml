@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemCarFilterBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.CarFilterData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.OnwerViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_5"
+        android:layout_marginEnd="@dimen/dimen_24"
+        android:orientation="horizontal">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@{dataset.carb_name}"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@{viewModel.carFilterCursorPoint == posi ? ContextCompat.getColor(context, R.color.main_color) : ContextCompat.getColor(context, R.color.white)}"
+            android:textSize="@dimen/_11sdp" />
+
+
+    </LinearLayout>
+
+
+    <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

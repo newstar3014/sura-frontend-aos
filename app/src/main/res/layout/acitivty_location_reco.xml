@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationRecoViewModel"/>
+        <import type="android.view.View" />
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:background="@color/black"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Location"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:lineSpacingExtra="@dimen/_3sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingVertical="@dimen/dimen_5"
+            android:paddingHorizontal="@dimen/dimen_10"
+            android:src="@drawable/ic_ar_left_24px"
+             />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:paddingTop="@dimen/dimen_10"
+        android:layout_weight="9.4">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/btn_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/coner_round_drive_vip_box_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_7sdp"
+
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5_5"
+            android:fontFamily="@font/optimus_princeps"
+            android:text="드라이브 코스,장소 추천하기"
+            android:textColor="@color/round_color1"
+            android:textSize="@dimen/_11sdp"
+            />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_15"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_ar_left_16x16" />
+        />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textview_inter"
+        android:textColor="@color/white_70"
+        android:text="추천하고 싶은 드라이브 코스 또는 장소를 추천해주세요.\n(추천 완료 시 보상 하트를 지급합니다!)"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        style="@style/textview_inter_title"
+        android:text="오너 &amp; 패신저들의 추천 장소"
+        android:layout_marginBottom="@dimen/dimen_30"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textview_inter"
+        android:text="우리 같이 드라이브 갈까요?"
+        android:textColor="@color/white_80"
+        android:layout_marginLeft="@dimen/dimen_16"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/_10sdp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_location_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="@{viewModel.recodata.size() != 0 ? View.VISIBLE:View.GONE}"
+
+            />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.recodata.size() == 0 ? View.VISIBLE:View.GONE}">
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/ic_list_alt_80x80" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@{viewModel.nottext}"
+                android:textColor="@color/white_60"
+                android:textSize="@dimen/_12sdp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

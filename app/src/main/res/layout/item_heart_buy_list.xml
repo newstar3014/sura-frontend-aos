@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemHeartBuyListBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.HeartLogData" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+        <import type="android.view.View" />
+    </data>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48"
+            android:background="@color/trn"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/dimen_25"
+                android:layout_height="@dimen/dimen_25"
+                android:scaleType="centerInside"
+                android:src="@{(dataset.hl_type.contains(`PAY`) || dataset.hl_type.contains(`관리자 지급`)|| dataset.hl_type.contains(`이벤트`))  ? @drawable/right_24x24 : @drawable/left_24x24 }"
+                android:layout_marginEnd="@dimen/dimen_6"
+                />
+            <ImageView
+                android:layout_width="@dimen/dimen_25"
+                android:layout_height="@dimen/dimen_25"
+                android:scaleType="centerInside"
+                android:src="@{(dataset.hl_type.contains(`PAY`) || dataset.hl_type.contains(`관리자 지급`)|| dataset.hl_type.contains(`이벤트`))  ? @drawable/emptyheart_02_24:@drawable/emptyhart_24x24}"
+                android:layout_marginEnd="@dimen/dimen_6"
+           />
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:textSize="@dimen/_10sdp"
+                android:text="@{dataset.GetTypeText}"
+                android:textColor="@{(dataset.hl_type.contains(`PAY`) || dataset.hl_type.contains(`관리자 지급`)|| dataset.hl_type.contains(`이벤트`))  ? @color/main_color:@color/white}" />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="@dimen/_9sdp"
+                android:text="@{dataset.GetDateText()}"
+                android:textColor="@{(dataset.hl_type.contains(`PAY`) || dataset.hl_type.contains(`관리자 지급`)|| dataset.hl_type.contains(`이벤트`))  ? @color/main_color:@color/white}" />
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

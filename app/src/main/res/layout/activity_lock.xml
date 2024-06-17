@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LockViewModel" />
+
+        <variable
+            name="activity"
+            type="com.supercarlounge.supercar.ui.activity.LockActivity" />
+
+        <variable
+            name="size"
+            type="java.lang.Integer" />
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/lock_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.MainActivity">
+
+
+        <!--        슈퍼카이미지-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_intro"
+                android:layout_width="@dimen/dimen_146"
+                android:layout_height="@dimen/dimen_146"
+                android:src="@drawable/logo_sura_146x146"
+
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        edit&text box-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/inter_medium"
+                android:text="@{viewModel.mainText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_24"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:fontFamily="@font/optimus_princeps"
+                android:text="@{viewModel.passwordHintText}"
+                android:textColor="@{viewModel.passwordType == true ? ContextCompat.getColor(context, R.color.white_70) : ContextCompat.getColor(context, R.color.not_pass)}"
+                android:textSize="@dimen/_9sdp"
+                android:textStyle="normal"
+
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_21"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="*"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/tv_28"
+                    android:textStyle="normal"
+                    android:visibility="@{viewModel.passwordListSize >= 1 ? View.VISIBLE : View.INVISIBLE}"
+
+                    />
+
+                <View
+                    android:layout_width="@dimen/dimen_21"
+                    android:layout_height="@dimen/dimen_2"
+                    android:background="@color/password_bottom_view" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_21"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="*"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/tv_28"
+                    android:textStyle="normal"
+                    android:visibility="@{viewModel.passwordListSize >= 2 ?View.VISIBLE : View.INVISIBLE}"
+
+                    />
+
+                <View
+                    android:layout_width="@dimen/dimen_21"
+                    android:layout_height="@dimen/dimen_2"
+
+                    android:background="@color/password_bottom_view" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_21"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="*"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/tv_28"
+                    android:textStyle="normal"
+                    android:visibility="@{viewModel.passwordListSize >= 3 ?View.VISIBLE : View.INVISIBLE}"
+
+                    />
+
+                <View
+                    android:layout_width="@dimen/dimen_21"
+                    android:layout_height="@dimen/dimen_2"
+
+                    android:background="@color/password_bottom_view" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="*"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/tv_28"
+                    android:textStyle="normal"
+                    android:visibility="@{viewModel.passwordListSize >= 4 ?View.VISIBLE : View.INVISIBLE}"
+
+                    />
+
+                <View
+                    android:layout_width="@dimen/dimen_21"
+                    android:layout_height="@dimen/dimen_2"
+
+                    android:background="@color/password_bottom_view" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:layout_marginVertical="@dimen/_30sdp"
+                android:orientation="horizontal"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(1)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="1"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(4)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+
+                        android:text="4"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(7)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="7"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/tv_all_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_toStartOf="@+id/tv_0"
+                        android:gravity="center"
+
+
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="취소"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(2)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="2"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(5)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="5"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(8)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="8"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(0)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="0"
+                        android:textColor="@color/main_color"
+
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(3)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="3"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:onClick="@{() -> viewModel.addPassword(6)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="6"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal" />
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.addPassword(9)}"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:text="9"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal"
+
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/iv_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/tv_0"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.delete()}"
+                        android:src="@drawable/ic_lock_del_28x28"
+                        android:textSize="@dimen/tv_24"
+                        android:textStyle="normal" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/onclick_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="잠금 비밀번호 찾기"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@color/white_70" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </LinearLayout>
+</layout>

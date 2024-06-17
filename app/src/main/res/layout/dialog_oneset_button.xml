@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogOneButtonViewModel">
+
+
+        </variable>
+
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:background="@color/trn"
+        android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/popbg_1000x1000"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_20dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/iv_main"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+
+                        android:scaleType="centerInside"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="@{viewModel.tv_main}"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text='@{viewModel.tv_sub != null ? viewModel.tv_sub : ""}'
+                        android:visibility="@{viewModel.tv_sub.equals(``) || viewModel.tv_sub == null ? View.GONE :View.VISIBLE}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ok"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@={viewModel.tv_ok}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </FrameLayout>
+
+</layout>

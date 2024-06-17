@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemConciergeBinding">
+        <import type="android.view.View" />
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.ConciergeData" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_120"
+        android:background="@color/trn"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/trn"
+            android:gravity="center_vertical"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_55sdp"
+                android:layout_height="@dimen/_55sdp"
+                android:src="@drawable/ic_mian"
+                android:layout_marginEnd="@dimen/dimen_12"
+                android:layout_marginStart="@dimen/dimen_16"
+                app:photocenter="@{dataset.co_image_brand}"
+                />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/dimen_36"
+                    android:text="@{dataset.co_company}"
+                    android:textColor="@color/white" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dimen_36"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:visibility="@{(dataset.co_text.isEmpty() || dataset.co_text == null) ? View.GONE:View.VISIBLE}"
+                    android:text="@{dataset.coTextString}"
+
+                    android:textColor="@color/white_70" />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dimen_36"
+                    android:gravity="center"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text='@{"일반회원: "+dataset.co_normal}'
+                    android:visibility="@{dataset.isView == 0 ? View.VISIBLE:View.GONE}"
+                    android:textColor="@color/white_70" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dimen_36"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/inter_regular"
+                    android:textSize="@dimen/_9sdp"
+                    android:visibility="@{dataset.isView == 0 ? View.VISIBLE:View.GONE}"
+                    android:text='@{"VIP회원: "+dataset.co_vip}'
+                    android:textColor="@color/white_70" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="@color/my_page_bottom_view"
+            app:layout_constraintTop_toBottomOf="parent"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+        <!--                        android:textSize="@dimen/_10sdp"-->
+
+
+</layout>

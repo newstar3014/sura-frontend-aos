@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemLocationSpotHoriBinding">
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.LocationSpotData" />
+
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.HomeViewModel"/>
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+
+        <RelativeLayout
+            android:id="@+id/item"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/item_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    app:layout_constraintDimensionRatio="10:15"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="8"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:src="@drawable/item_sample1" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="left">
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view_bottom"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    style="@style/textview_inter_title"
+                    android:layout_marginHorizontal="@dimen/dimen_8"
+                    android:text="@{dataset.spot_title}"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="@dimen/dimen_7_5"
+                    android:textSize="@dimen/_12sdp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </RelativeLayout>
+
+</layout>

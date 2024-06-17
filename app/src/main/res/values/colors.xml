@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="line_gray">#59aaaaaa</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_gray_30">#4DEBEBF5</color>
+    <color name="text_sub">#B3FFFFFF</color>
+    <color name="edit_text_bar">#E0E0E0</color>
+    <color name="edit_text_color_hint">#696969</color>
+    <color name="join_bottom_bar">#4DFFFFFF</color>
+    <color name="guide_bottom_bar">#CC232325</color>
+    <color name="edit_text_bottom_bar">#E0E0E0</color>
+    <color name="calender_back">#CC1C1C1E</color>
+
+    <color name="home_bottom_view">#616161</color>
+    <color name="password_bottom_view">#99FFFFFF</color>
+    <color name="home_title_text">#80B8977E</color>
+    <color name="won">#80B8977E</color>
+    <color name="home_title_text_s">#B8977E</color>
+    <color name="my_page_bottom_view">#4DFFFFFF</color>
+    <color name="my_page_mini_bottom_view">#B3E0E0E0</color>
+    <color name="white_4">#0AFFFFFF</color>
+    <color name="white_8">#14FFFFFF</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_15">#26FFFFFF</color>
+    <color name="white_16">#29FFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_24">#3DFFFFFF</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+
+
+    <color name="bg_80">#282828</color>
+    <color name="bg">#33000000</color>
+    <color name="checkbox_check_40">#66121212</color>
+    <color name="checkbox_check_4">#0AFFFFFF</color>
+    <color name="black_check_50">#80000000</color>
+    <color name="black_check_60">#99000000</color>
+    <color name="black_check_70">#B3121212</color>
+    <color name="black_check_80">#CC000000</color>
+    <color name="black_check_100">#121212</color>
+    <color name="black_check_30">#4D121212</color>
+    <color name="gray">#B3BBBBBB</color>
+    <color name="text_guide">#E5E5E5</color>
+    <color name="main_tab_bar_select">#CCFFFFFF</color>
+    <color name="main_tab_bar_text_color">#66FFFFFF</color>
+    <color name="sw_on">#B8977E</color>
+    <color name="sw_off">#BBBBBB</color>
+    <color name="bottom_bar_text">#908F8F</color>
+    <color name="comment_bg">#3D3D3D</color>
+    <color name="round_color1">#FCD2A8</color>
+    <color name="round_edt_box">#272727</color>
+    <color name="location_tag">#F8D47A</color>
+
+    <color name="black_70">#B3000000</color>
+    <color name="purple">#8627FF</color>
+    <color name="pink2">#FF4A6B</color>
+    <color name="pink">#FF274E</color>
+    <color name="red">#FF2727</color>
+    <color name="red2">#E93F3F</color>
+    <color name="warning_red">#FF2727</color>
+    <color name="woman">#FF8096</color>
+    <color name="man">#569AFF</color>
+    <color name="profile_back">#333333</color>
+    <color name="Blank">#696969</color>
+    <color name="bottom_bar_color">#1C1C1C</color>
+    <color name="btn_login_round_color">#66FFFFFF</color>
+    <color name="trn">#00000000</color>
+    <color name="line">#D9D9D9</color>
+    <color name="gray90">#F5F5F5</color>
+    <color name="trn20">#33000000</color>
+    <color name="trn50">#80000000</color>
+    <color name="non">#B3EFEFEF</color>
+    <color name="non1">#4D000000</color>
+    <color name="Red">#D84E4E</color>
+    <color name="main_color_strok">#B3DBCCB9</color>
+    <color name="p1" tools:ignore="MissingDefaultResource">#5A1414</color>
+    <color name="p2" tools:ignore="MissingDefaultResource">#14465A</color>
+    <color name="p3" tools:ignore="MissingDefaultResource">#145A20</color>
+    <color name="p4" tools:ignore="MissingDefaultResource">#5A4E14</color>
+    <color name="p5" tools:ignore="MissingDefaultResource">#14155A</color>
+    <color name="main_color">#DBCCB9</color>
+    <color name="main_color_20">#33DBCCB9</color>
+    <color name="main_color_70">#B3DBCCB9</color>
+    <color name="check_text_non">#80FFFFFF</color>
+    <color name="join_check_text_non">#29FFFFFF</color>
+    <color name="top_drive_bg">#0C0C0C</color>
+    <color name="top_drive_bg2" tools:ignore="MissingDefaultResource">#660C0C0C</color>
+    <color name="not_pass">#B3EB5757</color>
+    <color name="check_box_drive_true">#B8977E</color>
+    <color name="start_box_bg">#EBCFA4</color>
+    <color name="bottom_sheet_non">#C4C4C4</color>
+    <color name="bottom_sheet_s">#B8977E</color>
+    <color name="join_progress_bar_bg">#1AE5E5E5</color>
+    <color name="join_progress_bar_s">#E5E5E5</color>
+    <color name="cooper_gradi_st">#FFE6BE</color>
+    <color name="main_vip_item_stroke">#B8977E</color>
+    <color name="main_vip_item_stroke2">#454C3811</color>
+    <color name="cooper_gradi_ed">#E2A07E</color>
+    <color name="unselect_cooper">#BBBBBB</color>
+    <color name="kakao_color">#FEE500</color>
+    <color name="deep_gray">#1d1d1f</color>
+    <color name="sell">#EB5757</color>
+</resources>

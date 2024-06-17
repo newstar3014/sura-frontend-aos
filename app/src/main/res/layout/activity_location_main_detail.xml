@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.LocationSpotDetailViewModel" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:text="@{viewModel.titleText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                 />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.9"
+            android:overScrollMode="never"
+            tools:ignore="ScrollViewCount">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_32">
+
+                        <com.supercarlounge.supercar.CustomViewPager
+                            android:id="@+id/pager"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_200sdp"
+                            tools:ignore="NotSibling" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/linearLayoutCompat2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_alignBottom="@+id/pager"
+                            android:gravity="right|center_vertical"
+                            android:orientation="horizontal"
+                            tools:ignore="RtlHardcoded">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_20sdp"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_2sdp">
+
+                                <TextView
+                                    android:id="@+id/now_position"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:text="@{String.valueOf(viewModel.position+1)}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:text="/"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+
+                                <TextView
+                                    android:id="@+id/max"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:text="@{String.valueOf(viewModel.subimagelist.size())}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="@{viewModel.subimagelist.size() != 0 ? View.VISIBLE:View.GONE }">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/btn_prv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_ar_left_24px_2"
+                                    android:visibility="@{viewModel.position != 0 ? View.VISIBLE:View.GONE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <Space
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="8" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/btn_next"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:rotation="180"
+                                    android:src="@drawable/ic_ar_left_24px_2"
+                                    android:visibility="@{viewModel.position != viewModel.subimagelist.size()-1 ? View.VISIBLE:View.GONE}" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginBottom="@dimen/dimen_5"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dimen_16"
+                                    android:layout_height="@dimen/dimen_16"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/location_16x16" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dimen_4"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.detaildata.GetDistanceSet()}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10sdp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                style="@style/textview_inter_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+
+                                android:layout_marginBottom="@dimen/dimen_5"
+                                android:text="@{viewModel.detaildata.spot_title}"
+                                android:textSize="@dimen/_16sdp" />
+
+
+                            <!--                            <TextView-->
+                            <!--                                android:layout_width="wrap_content"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:layout_marginHorizontal="@dimen/dimen_16"-->
+                            <!--                                android:fontFamily="@font/inter_medium"-->
+                            <!--                                android:text="@{viewModel.detaildata.spot_content}"-->
+                            <!--                                android:textColor="@color/white_80"-->
+                            <!--                                android:textSize="@dimen/_10sdp" />-->
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <ImageView
+                            android:id="@+id/iv_bookmark"
+                            android:layout_width="@dimen/dimen_40"
+                            android:layout_height="@dimen/dimen_40"
+                            android:layout_alignParentTop="true"
+
+                            android:layout_alignParentRight="true"
+                            android:scaleType="centerInside"
+                            android:src="@{viewModel.bookmark ? @drawable/bookmark_04 : @drawable/bookmark_03 }"
+                            tools:ignore="MissingConstraints" />
+                    </RelativeLayout>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:fontFamily="@font/inter_medium"
+                            android:text="@{viewModel.tvBoockCount}"
+                            android:textColor="@color/white_80"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:src="@drawable/mini_round" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:fontFamily="@font/inter_medium"
+                            android:text="@{viewModel.tvEtc}"
+                            android:textColor="@color/white_80"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.15" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_1"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:scaleType="centerInside"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/icon_calling" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dimen_16"
+                                android:fontFamily="@font/inter_medium"
+                                android:text="전화"
+                                android:layout_marginBottom="@dimen/_7sdp"
+                                android:textColor="@color/white_80"
+                                android:textSize="@dimen/_10sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white_30" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_2"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:scaleType="centerInside"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/icon_navy" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dimen_16"
+                                android:fontFamily="@font/inter_medium"
+                                android:text="내비"
+                                android:textColor="@color/white_80"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:textSize="@dimen/_10sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white_30" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_3"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:scaleType="centerInside"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/icon_reserve" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dimen_16"
+                                android:fontFamily="@font/inter_medium"
+                                android:text="예약"
+                                android:textColor="@color/white_80"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:textSize="@dimen/_10sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white_30" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_4"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:scaleType="centerInside"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/icon_share" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dimen_16"
+                                android:fontFamily="@font/inter_medium"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:text="공유"
+                                android:textColor="@color/white_80"
+                                android:textSize="@dimen/_10sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <Space
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.15" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:background="@color/white_30" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_80"
+                        android:background="@color/white_16"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_16">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="0dip"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|left">
+
+                            <ImageView
+                                android:layout_width="@dimen/dimen_30"
+                                android:layout_height="@dimen/dimen_30"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:src="@drawable/icon_location_gray" />
+
+                            <TextView
+                                style="@style/textview_inter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.detaildata.spot_address}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="0dip"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/btn_copy"
+                                style="@style/textview_inter_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="주소복사"
+                                android:textColor="@color/main_color"
+                                android:textSize="@dimen/_12sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:background="@color/white_30" />
+
+                    <TextView
+                        style="@style/textview_inter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="설명"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="@{viewModel.detaildata.spot_detail}"
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.descdata.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            style="@style/textview_inter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:text="상세정보"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_30"
+                            app:desc="@{viewModel.descdata}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.menudata.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            style="@style/textview_inter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:text="메뉴"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_menu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:desc="@{viewModel.menudata}" />
+
+                        <TextView
+                            style="@style/textview_inter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_30"
+                            android:text="@{viewModel.tvmore}"
+                            android:textColor="@color/white_80"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:onClick="@{()->viewModel.eventMore(true)}"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="@{viewModel.tvmore.equals(``) || viewModel.tvmore == null ? View.GONE :View.VISIBLE}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.drivelist.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            style="@style/textview_inter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:layout_marginBottom="@dimen/dimen_20"
+                            android:text="이 장소를 태그한 드라이브 게시글이에요!"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_drive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_80"
+                            app:drivelocation="@{viewModel.drivelist}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.recentspotlist.size() != 0 ? View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            style="@style/textview_inter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_16"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:text="주변 추천장소"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_recentspot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_80"
+                            app:locationspothori="@{viewModel.recentspotlist}" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:background="@color/home_bottom_view" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_inquiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/_10sdp"
+                            android:text="정보 수정이 필요하신가요?"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ar_right_cloudy_24x24" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_bottom_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/join_bottom_bar"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints">
+                    <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이 장소로 드라이브 게시글 작성하기"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

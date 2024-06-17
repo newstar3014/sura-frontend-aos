@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.PostWritingViewModel" />
+        <import type="com.supercarlounge.supercar.R" />
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PostWritingActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/optimus_princeps_pemi_bold"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:text="@{viewModel.titleText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_post_writing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_24"
+                    android:layout_marginHorizontal="@dimen/dimen_16"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+
+                    android:text="게시판 카테고리를 선택해주세요"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/_9sdp" />
+
+                <ImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_frame_1688" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dimen_11"
+                    android:text="사진을 첨부하시겠습니까?"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_260sdp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+
+                    android:padding="@dimen/dimen_10">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/textinput_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:background="@color/trn"
+                        android:padding="2dp"
+                        app:endIconMode="none"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_writing"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trn"
+                            android:gravity="top"
+                            android:hint="내용을 입력해 주세요."
+                            android:padding="5dp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white_50"
+                            tools:ignore="Deprecated" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!--        하단바-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+
+            android:background="@color/join_bottom_bar"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+            <!--            android:visibility="@{viewModel.state == 5 ? View.VISIBLE :View.GONE}"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="등록하기"
+                android:textColor="@color/bottom_bar_text"
+                android:textSize="@dimen/_11sdp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.overlap ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+
+</layout>

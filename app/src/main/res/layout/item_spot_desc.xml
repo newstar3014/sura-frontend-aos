@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.LocationSpotDescData" />
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:fontFamily="@font/inter_medium"
+        android:text="@{dataset.title}"
+        android:textColor="@color/white_80"
+        android:textSize="@dimen/_10sdp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:fontFamily="@font/inter_medium"
+        android:text="@{dataset.content}"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

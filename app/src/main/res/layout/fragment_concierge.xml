@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.ConciergeViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.fragment.ConciergeFragment">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/trn">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trn">
+
+                    <com.google.android.material.appbar.CollapsingToolbarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:collapsedTitleGravity="center"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.viewpager.widget.ViewPager
+                                android:id="@+id/pager_banner_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_94"
+                                android:layout_marginBottom="@dimen/dimen_27dp"
+                                android:layoutDirection="rtl"
+                                app:banners="@{viewModel.bannertop}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <ImageView
+                                android:id="@+id/iv_vip_drive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_54sdp"
+                                android:layout_marginBottom="@dimen/_50sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/logo_concierge_109x109"
+                                tools:ignore="MissingConstraints" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dimen_16">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/dimen_5_5"
+                                    android:fontFamily="@font/optimus_princeps_pemi_bold"
+                                    android:src="@drawable/ic_cell"
+                                    android:text="제휴사별 혜택안내"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_13sdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginHorizontal="@dimen/dimen_16"
+                                android:layout_marginBottom="@dimen/dimen_8"
+                                android:background="@color/home_bottom_view" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/home_bottom_view" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_layout"
+                            style="@style/contablayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:background="@color/trn"
+                            android:fillViewport="true"
+                            app:tabGravity="fill"
+                            app:tabMode="fixed"
+                            app:tabTextAppearance="@style/MyTabLayoutTextAppearance" />
+
+                    </RelativeLayout>
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.supercarlounge.supercar.CustomViewPager
+                    android:id="@+id/pager_concierge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:conciergetype="@{viewModel.tablist}"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

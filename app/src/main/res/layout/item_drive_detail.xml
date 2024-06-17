@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data class="ItemDriveDetail">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dataset"
+            type="com.supercarlounge.supercar.data.DriveAwayData" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.DriveDetailViewModel" />
+
+        <variable
+            name="posi"
+            type="Integer" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/dimen_16"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:adjustViewBounds="true"
+                    app:photo2="@{dataset.b_cover}" />
+                <!--                0211 사진&이미지-->
+                <!--                android:scaleType="centerCrop"-->
+                <CheckBox
+                    android:id="@+id/likecheck"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_alignEnd="@+id/iv_image"
+                    android:layout_alignBottom="@+id/iv_image"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/custom_checkbox_heart"
+                    android:button="@null"
+                    android:checked="@{dataset.getlike_check()}"
+
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/iv_sex"
+                                    android:layout_width="@dimen/dimen_10"
+                                    android:layout_height="@dimen/dimen_10"
+                                    android:scaleType="centerInside"
+                                    android:src="@{dataset.u_gender.equals(`MALE`) ? @drawable/ic_man_12x12 :@drawable/ic_woman_12x12}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/dimen_4"
+                                    android:gravity="center"
+                                    android:text="@{dataset.rn_nickname}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10sdp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+
+                                >
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_12sdp"
+                                    android:layout_height="@dimen/_12sdp"
+                                    android:layout_gravity="center_vertical"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/location_16x16"
+                                    android:visibility="@{dataset.getDistans() != null ? View.VISIBLE : View.GONE}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:gravity="center"
+                                    android:text="@{dataset.getDistans()}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/tv_10"
+                                    android:visibility="@{dataset.getDistans() != null ? View.VISIBLE : View.GONE}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:gravity="center"
+                                    android:text="@{dataset.setTime}"
+                                    android:textColor="@color/white_70"
+                                    android:textSize="@dimen/tv_10" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_44"
+                            android:layout_height="@dimen/dimen_44"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dimen_9"
+                            android:scaleType="centerInside"
+                            android:visibility="@{dataset.carb_image != null ? View.VISIBLE : View.GONE}"
+                            app:logo="@{dataset.carb_image}" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <ImageView
+                        android:id="@+id/drvie_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:src="@drawable/viewmore_24"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:layout_marginBottom="@dimen/dimen_40"
+                    android:background="@drawable/coner_round_drive_box_bg"
+                    android:orientation="vertical"
+
+                    tools:ignore="RtlHardcoded">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:gravity="left"
+                        android:text="@{dataset.GetTitle}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{dataset.GetContent}"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/dimen_36"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:gravity="left"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:background="@drawable/coner_round_white4_bg"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_24"
+                            android:layout_height="@dimen/dimen_24"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_calendar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_10"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="left"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp"
+                            app:drivewhen="@{dataset.b_when}"
+                            app:drivewhen2="@{dataset}"/>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/coner_round_white4_bg"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_24"
+                            android:layout_height="@dimen/dimen_24"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_emoticon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="left"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp"
+                            app:drivehow="@{dataset.b_how}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/coner_round_post_bg_w50"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:visibility="@{dataset.spot_address.equals(``) || dataset.spot_address == null ? View.GONE :View.VISIBLE}"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:src="@drawable/icon_location_gray"
+                            />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginVertical="@dimen/_10sdp"
+
+                            >
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{dataset.spot_title}"
+                                android:fontFamily="@font/inter_bold"
+                                android:gravity="left"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{dataset.spot_address}"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:fontFamily="@font/inter_regular"
+                                android:gravity="left"
+                                android:textColor="@color/white_80"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <ImageView
+                            android:id="@+id/iv_lock"
+                            android:layout_width="@dimen/dimen_26"
+                            android:layout_height="@dimen/dimen_26"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dimen_9"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/lock_24x24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/dimen_4"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:gravity="center"
+                            app:text="@{dataset}"
+                            android:textColor="@color/white_50"
+                            android:textSize="@dimen/_9sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_set"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_12sdp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp">
+
+                        <ImageView
+                            android:id="@+id/iv_drive"
+                            android:layout_width="@dimen/dimen_26"
+                            android:layout_height="@dimen/dimen_26"
+                            android:layout_gravity="center_vertical"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_drive_active" />
+
+                        <TextView
+                            android:id="@+id/tv_drive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/optimus_princeps"
+                            android:textColor="@color/main_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:okstatus="@{dataset}"
+                            app:myseq= "@{viewModel.my_seq}"
+                            app:vipType="@{viewModel.driveType}"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginVertical="@dimen/_25sdp"
+
+                >
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pidpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dip"
+                    android:paddingHorizontal="@dimen/_25sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

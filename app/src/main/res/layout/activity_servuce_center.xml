@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.ServiceCenterViewModel" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.ServiceCenterActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@color/black">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:text="고객센터"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_10"
+                android:paddingVertical="@dimen/dimen_5"
+                android:src="@drawable/ic_ar_left_24px"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--            -->
+        <!--            <androidx.core.widget.NestedScrollView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="0dp"-->
+        <!--                android:layout_weight="9"-->
+        <!--                android:overScrollMode="never"-->
+        <!--                android:background="@drawable/background_bg"-->
+        <!--                tools:ignore="ScrollViewCount">-->
+        <!--                &lt;!&ndash;            상단 뷰페이저&ndash;&gt;-->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_28">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객센터 문의하기"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnknownIdInLayout" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_ar_right_24px_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_secession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_28">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="탈퇴 문의"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnknownIdInLayout" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_ar_right_24px_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_33_5"
+
+                android:layout_marginBottom="@dimen/dimen_5_5"
+                android:text="약관 및 정책"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_5_5"
+                android:background="@color/my_page_bottom_view" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_28_5"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="@{()->viewModel.setopen_service()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="서비스 이용약관"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@{viewModel.isopen_service ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="0.5"
+                    android:background="@color/bottom_bar_color"
+                    android:visibility="@{viewModel.isopen_service ? View.VISIBLE:View.GONE}" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_weight="10"
+                    android:visibility="@{viewModel.isopen_service ? View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/textview_inter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{Html.fromHtml(viewModel.service_term)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.core.widget.NestedScrollView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_28_5"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="@{()->viewModel.setopen_location()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="위치기반서비스 이용약관"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@{viewModel.isopen_location_term ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="0.5"
+                    android:background="@color/bottom_bar_color"
+                    android:visibility="@{viewModel.isopen_location_term ? View.VISIBLE:View.GONE}" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_weight="10"
+                    android:visibility="@{viewModel.isopen_location_term ? View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/textview_inter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{Html.fromHtml(viewModel.location_term)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="@{()->viewModel.setopen_privacy()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인정보처리방침"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@{viewModel.isopen_privacy_term ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="0.5"
+                    android:background="@color/bottom_bar_color"
+                    android:visibility="@{viewModel.isopen_privacy_term ? View.VISIBLE:View.GONE}" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_weight="10"
+                    android:visibility="@{viewModel.isopen_privacy_term ? View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/textview_inter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{Html.fromHtml(viewModel.privacy_term)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="@{()->viewModel.setopen_teenager()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="청소년 보호정책"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@{viewModel.isopen_teenager_term ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="0.5"
+                    android:background="@color/bottom_bar_color"
+                    android:visibility="@{viewModel.isopen_teenager_term ? View.VISIBLE:View.GONE}" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_weight="10"
+                    android:visibility="@{viewModel.isopen_teenager_term ? View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/textview_inter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{Html.fromHtml(viewModel.teenager_term)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="@{()->viewModel.setopen_organizer()}">
+
+                    <TextView
+                        android:id="@+id/tv_vip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="사업자정보확인"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownIdInLayout" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:src="@{viewModel.isopen_organizer_info ? @drawable/ic_ar_up_24px:@drawable/ic_ar_down_24px}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="0.5"
+                    android:background="@color/bottom_bar_color"
+                    android:visibility="@{viewModel.isopen_organizer_info ? View.VISIBLE:View.GONE}" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10"
+                    android:layout_marginStart="@dimen/dimen_24"
+                    android:layout_marginEnd="@dimen/dimen_48"
+                    android:visibility="@{viewModel.isopen_organizer_info ? View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginVertical="@dimen/dimen_25_5"
+                            android:text="회사소개"
+                            android:textColor="@color/white_80"
+                            android:textSize="@dimen/_11sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:text="상호"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+
+                            android:text="슈퍼카라운지 주식 회사"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="대표"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="Ahn Jongoh / Park Wonho"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="사업자등록번호"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="276-87-02023"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="통신판매업신고번호"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="제 2021-서울강남-03901호"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="주소"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+
+                            android:text="(1111)309, Teheran-ro,Gangnam-gu,\nSeoul,Republic of Korea"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="호스팅서비스제공자"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="Amazon.com, lnc (Amazon Web Service)"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="전자금융분쟁처리"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="help@supercarlounge.com"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:background="@color/my_page_bottom_view" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_24"
+                            android:text="홈페이지"
+                            android:textColor="@color/edit_text_color_hint"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:text="www.supercarlounge.com"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+
+                            android:layout_marginTop="@dimen/dimen_8"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:background="@color/my_page_bottom_view" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.core.widget.NestedScrollView>
+
+
+                <Space
+                    android:id="@+id/space"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dimen_24"
+                    android:layout_weight="10.5"
+                    android:visibility="@{viewModel.checkSpace ? View.VISIBLE:View.GONE}" />
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--                    </androidx.core.widget.NestedScrollView>-->
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

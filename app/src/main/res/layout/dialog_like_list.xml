@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.dialogviewmodel.DialogLikeListViewModel">
+
+
+        </variable>
+
+        <import type="com.supercarlounge.supercar.R" />
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/trn">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/popbg_1000x1000"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_20dp"
+            android:paddingBottom="@dimen/dimen_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="좋아요"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleType="centerInside"
+                android:layout_marginEnd="@dimen/dimen_5"
+                android:src="@drawable/x_16x16"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white_50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_like_list"
+            android:layout_weight="8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:itemCount="5"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+
+</layout>

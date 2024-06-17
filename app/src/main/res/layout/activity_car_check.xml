@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.supercarlounge.supercar.viewmodel.CarChecktViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        tools:context=".ui.activity.MainActivity">
+
+        <!--    타이틀바-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="@color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_ar_left_24px"
+                android:paddingVertical="@dimen/dimen_5"
+                android:paddingHorizontal="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_cell"
+                android:text="차량 소유"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        edit&text box-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_44"
+                android:fontFamily="@font/inter_bold"
+
+                android:text="차량을 \n소유 중이신가요?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_21" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:fontFamily="@font/inter_bold"
+                android:text="차량이 없으셔도 회원가입이 가능합니다."
+                android:textColor="@color/white_70"
+                android:textSize="@dimen/dimen_14" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_owner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_119"
+                android:layout_marginHorizontal="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_90"
+                android:background="@drawable/coner_round_start_bg"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_40"
+
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+
+
+                    >
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:fontFamily="@font/optimus_princeps"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/_2sdp"
+                        android:text="O  W  N  E  R"
+                        android:textColor="@color/main_color_70"
+                        android:textSize="@dimen/_8sdp"/>
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:text="네 소유 중입니다"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="안전을 최우선으로 하는 슈라는 차량 소유 인증 및\n자동차 종합보험 가입증서 등록이 필수로 필요합니다."
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_7sdp"
+
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ar_right_24px_2" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_passenger"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_119"
+                android:layout_marginHorizontal="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:background="@drawable/coner_round_start_bg"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/dimen_40">
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:gravity="center"
+                        android:text="P  A  S  S  E  N  G  E  R"
+
+                        android:fontFamily="@font/optimus_princeps"
+                        android:textColor="@color/main_color_70"
+                        android:textSize="@dimen/_8sdp"/>
+
+                    <TextView
+                        style="@style/textview_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:text="아니요, 패신저입니다"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+
+                        />
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:text="차량을 소유하지 않는 경우 패신저 등록을 해주세요\n남성 패신저의 경우 추가 인증이 필요합니다."
+                        android:textColor="@color/white_80"
+                        android:textSize="@dimen/_7sdp"
+
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ar_right_24px_2" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

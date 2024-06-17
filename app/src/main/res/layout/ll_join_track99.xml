@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?><!--        track 0-->
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    tools:ignore="MissingConstraints">
+    <!--            android:visibility="gone"/>-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_main" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_join_letter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="초대코드"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="@{viewModel.subText}"
+        android:textColor="@color/text_sub"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_box_certification_number"
+        style="@style/textinput_layout"
+        android:layout_width="160dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="2dp"
+        app:endIconMode="none">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_certification_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:hint="(국내) 초대코드"
+            android:lines="1"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/edit_text_color_hint"
+            android:textSize="8dp"
+            tools:ignore="Deprecated" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:layout_width="160dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="224dp"
+        android:background="@color/edit_text_bottom_bar" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:text="@{viewModel.informationText}"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+</androidx.appcompat.widget.LinearLayoutCompat>

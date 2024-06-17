@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 원모양의 시크바 컨트롤러 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false"  >
+    <!-- 배경 -->
+    <solid
+        android:color="@color/home_title_text_s"/>
+    <!-- 테두리 -->
+    <stroke
+        android:width="@dimen/_12sdp"
+        android:color="@color/white" />
+    <!-- 크기 -->
+    <size
+        android:width="@dimen/_30sdp"
+        android:height="@dimen/_30sdp"/>
+</shape>
