@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -102,15 +103,17 @@ class ServiceCenterActivity: BaseActivitiy() {
 //            serviceCenterDialog!!.show(this.supportFragmentManager,"")
         }
         binding.llSecession.setOnClickListener {
-
-            secessionDialog = SecessionDialog(this) { isfinish ,ischeckde,text->
-                if (isfinish){
-                    viewModel.setSecession(ischeckde,text)
-                }
-
-                }
-            secessionDialog!!.show(fm!!, "")
-
+            // 프로필 관리하기 클릭
+            val i = Intent(this, ProfileManagementActivity::class.java)
+            startActivity(i)
+            // 기존 즉시 탈퇴 팝업대신 프로필관리 액티비티로 이동
+//            secessionDialog = SecessionDialog(this) { isfinish ,ischeckde,text->
+//                if (isfinish){
+//                    viewModel.setSecession(ischeckde,text)
+//                }
+//
+//                }
+//            secessionDialog!!.show(fm!!, "")
         }
 
 

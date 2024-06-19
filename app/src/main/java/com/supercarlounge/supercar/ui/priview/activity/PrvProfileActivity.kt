@@ -652,6 +652,7 @@ class PrvProfileActivity : BaseActivitiy() , DialogEvent {
         var userData: UserInformationData? = UserInformationData(
             0,
             "",
+            "",
             0,
             "",
             "Y",

@@ -323,6 +323,24 @@
         <activity
             android:name=".ui.activity.ImageActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.ProfileManagementActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.UserWithdraw1Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.UserRest1Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.UserRest2Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.UserWithdraw2Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.UserWithdraw3Activity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

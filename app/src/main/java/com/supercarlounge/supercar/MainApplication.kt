@@ -64,7 +64,7 @@ val ALL_PUSH_TOPIC = "all_push"
 
 class MainApplication : Application() {
 
-    var prvVersion = "1.9.7"
+    var prvVersion = "1.9.8"
 
     var notificationManager: NotificationManager? = null
     var firebaseMessaging: FirebaseMessaging? = null
@@ -90,6 +90,7 @@ class MainApplication : Application() {
     // var userData : UserInformationData ? = null
     var userData: UserInformationData? = UserInformationData(
         0,
+        "",
         "",
         0,
         "",

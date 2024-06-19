@@ -1,5 +1,6 @@
 package com.supercarlounge.supercar.viewmodel
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -273,34 +274,42 @@ class LoginViewModel : ViewModel() {
 
                     var data = response.body()
 
+                    Log.d("휴면탈퇴", "로긴 검사")
                     if (data != null) {
+                        Log.d("휴면탈퇴", "로긴 검사 들어옴")
                         if (data.message.equals("가입된 회원 정보가 없습니다")){
+                            Log.d("휴면탈퇴", "로긴 1")
                             changeStateFlow(Constans.PHONE_PASS)
                         }else if (data.message.equals("승인 대기 상태입니다")){
 //                            application.savePhoneNumber(u_phone)
 //                            changeStateFlow(Constans.PHONE_WAITING)
+                            Log.d("휴면탈퇴", "로긴 2")
                             getNewUserInformation(data.u_seq.toString(), application,Constans.PHONE_WAITING )
                         }else if (data.status.equals("success")){
+                            Log.d("휴면탈퇴", "로긴 석세스 들어옴")
 //                            getSMS(number.value.toString(),application.push_token, application  )
 
 //                            getNewUserInformation(data.u_seq.toString(), application  ,Constans.PHONE_COMPANION)
                             if (u_phone == "01189070101"||u_phone == "01092615611"||u_phone.startsWith("090")) {
+                                Log.d("휴면탈퇴", "로긴 3")
                                 changeStateFlow(Constans.PHONE_ADMIN_LOGIN)
                             }else{
+                                Log.d("휴면탈퇴", "로긴 4")
                                 changeStateFlow(Constans.PHONE_LOGIN)
                             }
                         }else if (data.message.equals("미승인 상태입니다")){
+                            Log.d("휴면탈퇴", "로긴 5")
                             getNewUserInformation(data.u_seq.toString(), application  ,Constans.PHONE_COMPANION)
 //                            changeStateFlow(Constans.PHONE_LOGIN)
 //                            application.savePhoneNumber(u_phone)
 //                            getToken(number.value.toString(),application.push_token, application)
 //                            changeStateFlow(Constans.PHONE_COMPANION)
                         }else if(data.message.equals("퀵 회원입니다")){
-
+                            Log.d("휴면탈퇴", "로긴 6")
                             u_admin.value = data.u_admin
                             getQuickUserInformation(application,data.u_seq.toString())
                         }else{
-
+                            Log.d("휴면탈퇴", "로긴 7")
                         }
 
 //                        Log.d("setPassword", data.message)
@@ -358,6 +367,7 @@ class LoginViewModel : ViewModel() {
             val d = NetworkManager.serveradapter!!.create(TokenService::class.java).getToken(u_phone,u_token
             )
             d!!.enqueue(object : retrofit2.Callback<ResultTokenData> {
+                @SuppressLint("SuspiciousIndentation")
                 override fun onResponse(
                     call: retrofit2.Call<ResultTokenData>,
                     response: Response<ResultTokenData>
@@ -371,48 +381,29 @@ class LoginViewModel : ViewModel() {
                         var user = data.user
                         application.user_u_uuid = data.user.u_uuid
 
+                        if (data != null) {
 
-
-
-                            if (data != null) {
-//                            Log.d("test", user.toString())
-//                            saveip(u_suq = user.u_seq,
-//                                u_admin = user.u_admin,
-//                                u_uuid = user.u_uuid,
-//                                u_type = user.u_type,
-//                                u_birthday = user.u_birthday,
-//                                u_gender = user.u_gender,
-//                                u_police = user.u_police
-//                            , u_image = user.u_image
-//                                )
-
-                                if (data.user.u_police == 0){
-
-                                    if (user.u_admin.equals("M")){
-                                        getNewUserInformation(data.user.u_seq.toString(),application,Constans.PHONE_WAITING)
-
-                                    }else if (user.u_admin.equals("Y")){
-
-                                        getUserInformation(application,data.user.u_seq.toString(),u_phone)
-                                    }else{
-                                        getNewUserInformation(data.user.u_seq.toString(),application,Constans.PHONE_COMPANION)
-
-                                    }
+                            if (data.user.u_police == 0){
+                                if (user.u_admin.equals("M")){
+                                    Log.d("휴면탈퇴", "로긴 M")
+                                    getNewUserInformation(data.user.u_seq.toString(),application,Constans.PHONE_WAITING)
+                                }else if (user.u_admin.equals("Y")){
+                                    Log.d("휴면탈퇴", "로긴 Y")
+                                    getUserInformation(application,data.user.u_seq.toString(),u_phone)
+                                }else if (user.u_admin.equals("R")){
+                                    Log.d("휴면탈퇴", "로긴 R")
+                                    getRestUserInformation(application,data.user.u_seq.toString(),u_phone)
+                                }else if (user.u_admin.equals("W")){
+                                    Log.d("휴면탈퇴", "로긴 W")
+                                    getWithdrawUserInformation(application,data.user.u_seq.toString(),u_phone)
                                 }else{
-
-
-                                    changeStateFlow(Constans.PHONE_POLICE)
-
+                                    Log.d("휴면탈퇴", "로긴 Else")
+                                    getNewUserInformation(data.user.u_seq.toString(),application,Constans.PHONE_COMPANION)
                                 }
-
+                            }else{
+                                changeStateFlow(Constans.PHONE_POLICE)
                             }
-
-
-
-
-//                            )
-
-
+                        }
                     }
 
                 }
@@ -441,7 +432,6 @@ class LoginViewModel : ViewModel() {
                     var data = response.body()
                     if (data != null) {
                         if (data.rows != null){
-
                             application.userData = data.rows[0]
                             application.userCarData =data.car
                             if (u_phone == "01189070101"||u_phone == "01092615611"||u_phone.startsWith("090")){
@@ -449,26 +439,66 @@ class LoginViewModel : ViewModel() {
                             }else{
                                 changeStateFlow(Constans.PHONE_SUCCESS)
                             }
-
-
-
                         }
-
-
-
-
                     }
-
                 }
-
                 override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
                     Log.d("check", t.toString())
                 }
-
             })
-
         }
+    }
 
+    fun getRestUserInformation(application: MainApplication,u_seq : String,u_phone: String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(
+                u_seq,
+            )
+            d!!.enqueue(object : retrofit2.Callback<ResultUserInformationData> {
+                override fun onResponse(
+                    call: retrofit2.Call<ResultUserInformationData>,
+                    response: Response<ResultUserInformationData>
+                ) {
+                    var data = response.body()
+                    if (data != null) {
+                        if (data.rows != null){
+                            application.userData = data.rows[0]
+                            application.userCarData =data.car
+                            changeStateFlow(Constans.PHONE_R)
+                        }
+                    }
+                }
+                override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
+                    Log.d("check", t.toString())
+                }
+            })
+        }
+    }
+
+    fun getWithdrawUserInformation(application: MainApplication,u_seq : String,u_phone: String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(
+                u_seq,
+            )
+            d!!.enqueue(object : retrofit2.Callback<ResultUserInformationData> {
+                override fun onResponse(
+                    call: retrofit2.Call<ResultUserInformationData>,
+                    response: Response<ResultUserInformationData>
+                ) {
+                    var data = response.body()
+                    if (data != null) {
+                        if (data.rows != null){
+                            application.userData = data.rows[0]
+                            application.userCarData =data.car
+                            changeStateFlow(Constans.PHONE_W)
+                        }
+                    }
+                }
+                override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
+                    Log.d("check", t.toString())
+                }
+            })
+        }
     }
 
     fun getNewUserInformation(u_seq : String,application: MainApplication,type:Int){

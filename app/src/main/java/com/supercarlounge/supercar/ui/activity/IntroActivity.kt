@@ -254,6 +254,12 @@ class IntroActivity : BaseActivitiy() {
                         }else if(data.message.equals("퀵 회원입니다")){
                             getQuickUserInformation(u_seq.toString())
 
+                        }else if(data.message.equals("휴면 상태입니다")){
+                            type =81
+                            typeIntent(type)
+                        }else if(data.message.equals("탈퇴신청 상태입니다")){
+                            type =82
+                            typeIntent(type)
                         }else{
                             type =2
                             typeIntent(type)
@@ -329,6 +335,13 @@ class IntroActivity : BaseActivitiy() {
                                            Log.d("확인", "onResponse: 3")
                                         type =1
                                         getUserInformation(data.user.u_seq.toString())
+                                    }else if (user.u_admin.equals("R")){
+                                        type =81
+                                        getRestUserInformation(data.user.u_seq.toString())
+                                    }else if (user.u_admin.equals("W")){
+                                        Log.d("휴면탈퇴", "인트로에서 바로 W 들어옴")
+                                        type =82
+                                        getWithdrawUserInformation(data.user.u_seq.toString())
                                     }else if (data.user.u_admin.equals("N")){
                                         type=4
                                         typeIntent(type)
@@ -336,27 +349,17 @@ class IntroActivity : BaseActivitiy() {
                                     }else{
                                         getQuickUserInformation(u_seq.toString())
                                         Log.d("확인", "onResponse: 5")
-
                                     }
                                 }else{
-
                                     type =0
                                     typeIntent(type)
                                 }
-
-
                             }else{
-
-
                                 type=6
                                 typeIntent(type)
-
                             }
-
                         }
-
                     }
-
                 }
 
                 override fun onFailure(call: retrofit2.Call<ResultTokenData>, t: Throwable) {
@@ -369,13 +372,8 @@ class IntroActivity : BaseActivitiy() {
 
     }
     fun getUserInformation(u_seq : String){
-        Log.d("태그1", "111")
         CoroutineScope(Dispatchers.IO).launch {
-            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(
-                u_seq,
-//                "3471",
-
-            )
+            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(u_seq)
             d!!.enqueue(object : retrofit2.Callback<ResultUserInformationData> {
                 override fun onResponse(
                     call: retrofit2.Call<ResultUserInformationData>,
@@ -387,34 +385,68 @@ class IntroActivity : BaseActivitiy() {
                         application.userData = data.rows[0]
                         application.userCarData =data.car
 
-                        Log.d("태그1", "222")
-
-                        Log.d("가져온 유저 데이터", application.userData.toString())
-                        Log.d("가져온 유저 차 데이터", application.userCarData.toString())
-
                         if (application.userData!!.u_lock_screen =="Y"){
                             passwordSettingTrueFalse(u_seq)
                         }else{
-                        type = 1
-                        typeIntent(type)
+                            type = 1
+                            typeIntent(type)
                         }
-
-
                     }
-
                 }
-
                 override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
                     Log.d("check", t.toString())
                     Log.d("태그1", "333")
                 }
-
             })
-
         }
-
     }
 
+    fun getRestUserInformation(u_seq : String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(u_seq)
+            d!!.enqueue(object : retrofit2.Callback<ResultUserInformationData> {
+                override fun onResponse(
+                    call: retrofit2.Call<ResultUserInformationData>,
+                    response: Response<ResultUserInformationData>
+                ) {
+                    var data = response.body()
+                    if (data != null) {
+                        application.userData = data.rows[0]
+                        application.userCarData =data.car
+
+                        type = 81
+                        typeIntent(type)
+                    }
+                }
+                override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
+
+                }
+            })
+        }
+    }
+    fun getWithdrawUserInformation(u_seq : String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val d = NetworkManager.serveradapter.create(UserService::class.java).getUserInformation(u_seq)
+            d!!.enqueue(object : retrofit2.Callback<ResultUserInformationData> {
+                override fun onResponse(
+                    call: retrofit2.Call<ResultUserInformationData>,
+                    response: Response<ResultUserInformationData>
+                ) {
+                    var data = response.body()
+                    if (data != null) {
+                        application.userData = data.rows[0]
+                        application.userCarData =data.car
+
+                        type = 82
+                        typeIntent(type)
+                    }
+                }
+                override fun onFailure(call: retrofit2.Call<ResultUserInformationData>, t: Throwable) {
+
+                }
+            })
+        }
+    }
 
     fun getQuickUserInformation(u_seq : String){
         Log.d("태그1", "111")
@@ -565,6 +597,22 @@ class IntroActivity : BaseActivitiy() {
                 i.putExtra("u_phone", application?.userData?.u_phone)
                 startActivity(i)
                // overridePendingTransition(R.anim. fadein, R.anim.fadeout)
+                this@IntroActivity.finish()
+            }
+            81->{
+                // 휴면중
+                val i = Intent(this@IntroActivity, UserRest2Activity::class.java)
+                i.putExtra("u_admin","R")
+                i.putExtra("u_seq",u_seq)
+                startActivity(i)
+                this@IntroActivity.finish()
+            }
+            82->{
+                // 탈퇴신청중
+                val i = Intent(this@IntroActivity, UserWithdraw3Activity::class.java)
+                i.putExtra("u_admin","W")
+                i.putExtra("u_seq",u_seq)
+                startActivity(i)
                 this@IntroActivity.finish()
             }
             else -> {}

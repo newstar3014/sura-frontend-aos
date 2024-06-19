@@ -296,6 +296,8 @@ class Constans {
         const val PHONE_POLICE=1006
         const val PHONE_SUCCESS=1007
         const val PHONE_Q=1008
+        const val PHONE_R=10081
+        const val PHONE_W=10082
         const val PHONE_ADMIN_LOGIN =1009
         const val PHONE_ADMIN_SUCCESS=10010
         const val INVITATION_CODE_SUCCESS=11313

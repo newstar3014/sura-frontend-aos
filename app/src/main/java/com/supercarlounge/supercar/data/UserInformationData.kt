@@ -7,6 +7,7 @@ import kotlin.math.roundToInt
 
  data class UserInformationData(
      var u_seq: Int,
+     var u_admin: String?,
      val imType: String?,
      val im_seq: Int,
      val main_past_img: String?,
@@ -60,6 +61,7 @@ import kotlin.math.roundToInt
  ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readInt(),
         parcel.readString(),

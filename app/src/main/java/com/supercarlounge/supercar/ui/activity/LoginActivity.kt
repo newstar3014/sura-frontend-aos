@@ -402,8 +402,6 @@ class LoginActivity : BaseActivitiy(), BottomDialogEvent {
                         i.putExtra("u_seq", application.userData?.u_seq.toString())
                         Log.d("확인2", "flows: ")
                         startActivity(i)
-
-
                     }
                     Constans.PHONE_NUMBER_CALL_FAIL -> {
 
@@ -421,20 +419,28 @@ class LoginActivity : BaseActivitiy(), BottomDialogEvent {
                         i.putExtra("view", "퀵유저")
                         i.putExtra("u_seq", application.userData?.u_seq.toString())
                         i.putExtra("u_phone", application.userData?.u_seq.toString())
-//                        i.putExtra("u_admin",viewModel.u_admin.value.toString())
-
-//                        i.putExtra()
-//                        i.putExtra("u_gender",application.userData?.u_seq.toString())
                         startActivity(i)
-                     //   overridePendingTransition(R.anim.fadein, R.anim.fadeout)
+                        this@LoginActivity.finish()
+                    }
+                    Constans.PHONE_R -> {
+                        Log.d("휴면탈퇴", "Constans.PHONE_R")
+                        val i = Intent(this@LoginActivity, UserRest2Activity::class.java)
+                        i.putExtra("view", "휴면")
+                        i.putExtra("u_admin", application.userData?.u_admin.toString())
+                        startActivity(i)
+                        this@LoginActivity.finish()
+                    }
+                    Constans.PHONE_W -> {
+                        Log.d("휴면탈퇴", "Constans.PHONE_W")
+                        val i = Intent(this@LoginActivity, UserWithdraw3Activity::class.java)
+                        i.putExtra("view", "탈퇴")
+                        i.putExtra("u_admin", application.userData?.u_admin.toString())
+                        startActivity(i)
                         this@LoginActivity.finish()
                     }
                     else -> {}
                 }
-
             }
-
-
         }
     }
 
@@ -543,33 +549,41 @@ class LoginActivity : BaseActivitiy(), BottomDialogEvent {
                     viewModel.ToastText.value = "인증번호가 일치하지 않습니다"
 //                    Toast.makeText(this@LoginActivity,"인증번호가 일치하지 않습니다",Toast.LENGTH_SHORT).show()
                 } else {
+                    if(application.userData?.u_admin == "R"){
+                        val i = Intent(this@LoginActivity, UserRest2Activity::class.java)
+                        startActivity(i)
+                        this@LoginActivity.finish()
+                    }else{
+                        val i = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(i)
+                        this@LoginActivity.finish()
+                    }
 
-                    val i = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(i)
-                    this@LoginActivity.finish()
                 }
             } else if (viewModel.stateFlow.value == Constans.PHONE_Q) {
                 val i = Intent(this@LoginActivity, PrvMainActivity::class.java)
                 i.putExtra("view", "퀵유저")
                 i.putExtra("u_seq", application.userData?.u_seq.toString())
                 i.putExtra("u_phone", application.userData?.u_seq.toString())
-//                        i.putExtra("u_admin",viewModel.u_admin.value.toString())
-
-//                        i.putExtra()
-//                        i.putExtra("u_gender",application.userData?.u_seq.toString())
                 startActivity(i)
-              //  overridePendingTransition(R.anim.fadein, R.anim.fadeout)
                 this@LoginActivity.finish()
-
+            } else if (viewModel.stateFlow.value == Constans.PHONE_R) {
+                Log.d("휴면탈퇴", "viewModel.stateFlow.value == Constans.PHONE_R")
+                val i = Intent(this@LoginActivity, UserRest2Activity::class.java)
+                i.putExtra("view", "휴면")
+                i.putExtra("u_admin", application.userData?.u_admin.toString())
+                startActivity(i)
+                this@LoginActivity.finish()
+            } else if (viewModel.stateFlow.value == Constans.PHONE_Q) {
+                Log.d("휴면탈퇴", "viewModel.stateFlow.value == Constans.PHONE_Q")
+                val i = Intent(this@LoginActivity, UserWithdraw3Activity::class.java)
+                i.putExtra("view", "탈퇴")
+                i.putExtra("u_admin", application.userData?.u_admin.toString())
+                startActivity(i)
+                this@LoginActivity.finish()
             }
-         //   overridePendingTransition(R.anim.fadein, R.anim.fadeout)
-//                this.finish()
-
-//            }
-
 
         }
-
 
         binding.tvResend.setOnClickListener {
             if (viewModel.number.value.toString() == "01189070101"||viewModel.number.value.toString() == "01092615611"||viewModel.number.value.toString().startsWith("090")){
